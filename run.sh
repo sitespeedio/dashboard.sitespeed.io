@@ -46,7 +46,7 @@ while true
 do
     for urls in $SERVER/desktop/urls/* ; do
         NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${urls%.*})"
-        docker run $CABLE $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/desktop.json $urls
+        docker run $CABLE $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/desktop.json --verbose $urls
         control
     done
 
