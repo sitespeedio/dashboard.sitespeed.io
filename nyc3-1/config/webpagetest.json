@@ -1,5 +1,5 @@
 {
-  "extends": "~/config/webpagetest-secrets.json",
+  "extends": "/config/webpagetest-secrets.json",
   "browsertime": {
     "connectivity": {
       "engine": "throttle",
