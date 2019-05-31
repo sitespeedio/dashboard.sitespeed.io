@@ -39,7 +39,7 @@ function control() {
 # DOCKER_CONTAINER=sitespeedio/sitespeed.io:9.2.0
 DOCKER_CONTAINER=sitespeedio/sitespeed.io-autobuild:latest
 DOCKER_SETUP="--cap-add=NET_ADMIN  --shm-size=2g --rm -v /config:/config -v "$(pwd)":/sitespeed.io -v /result:/result -v /etc/localtime:/etc/localtime:ro "
-CONFIG="--config /sitespeed.io/$SERVER/config"
+CONFIG="--config /sitespeed.io/config"
 sudo modprobe ifb numifbs=1
 
 while true

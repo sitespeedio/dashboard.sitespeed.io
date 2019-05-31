@@ -2,11 +2,11 @@
   "extends": "/config/secrets.json",
   "browsertime": {
     "connectivity": {
-      "engine": "external",
+      "engine": "throttle",
       "profile": "cable"
     },
     "visualElements": true,
-    "iterations": 5,
+    "iterations": 3,
     "browser": "chrome",
     "video": true,
     "visualMetric": true
