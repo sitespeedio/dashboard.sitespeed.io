@@ -10,7 +10,6 @@ then
     exit 1
 fi
 
-
 if [ -f "$CONTROL_FILE" ]
 then
   echo "$CONTROL_FILE exist, do you have running tests?"
@@ -19,18 +18,14 @@ else
   touch $CONTROL_FILE
 fi
 
-function cleanup() {
-  docker system prune --all --volumes -f
-}
-
 function control() {
   if [ -f "$CONTROL_FILE" ]
   then
     echo "$CONTROL_FILE found. Make another run ..."
   else
     echo "$CONTROL_FILE not found - stopping after cleaning up ..."
-    cleanup
-    echo "Exit"$
+    docker system prune --all --volumes -f
+    echo "Exit"
     exit 1
   fi
 }
@@ -40,8 +35,9 @@ function control() {
 DOCKER_CONTAINER=sitespeedio/sitespeed.io-autobuild:latest
 DOCKER_SETUP="--cap-add=NET_ADMIN  --shm-size=2g --rm -v /config:/config -v "$(pwd)":/sitespeed.io -v /etc/localtime:/etc/localtime:ro "
 CONFIG="--config /sitespeed.io/config"
-sudo modprobe ifb numifbs=1
 BROWSERS=(chrome firefox)
+
+sudo modprobe ifb numifbs=1
 
 while true
 do
@@ -59,6 +55,7 @@ do
         docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/desktop.json --multi --spa $urls
         control
     done
+
     for urls in $SERVER/mobile/urls/* ; do
         NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${urls%.*})"
         docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/mobile.json $urls
@@ -83,7 +80,7 @@ do
         control
     done
 
-    cleanup
+    docker system prune --all --volumes -f
     sleep 20
 done
 
