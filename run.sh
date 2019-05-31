@@ -38,7 +38,7 @@ function control() {
 # Instead use the latest tagged version as the next row
 # DOCKER_CONTAINER=sitespeedio/sitespeed.io:9.2.0
 DOCKER_CONTAINER=sitespeedio/sitespeed.io-autobuild:latest
-DOCKER_SETUP="--cap-add=NET_ADMIN  --shm-size=2g --rm -v /~/config:/config -v "$(pwd)":/sitespeed.io -v /etc/localtime:/etc/localtime:ro "
+DOCKER_SETUP="--cap-add=NET_ADMIN  --shm-size=2g --rm -v /config:/config -v "$(pwd)":/sitespeed.io -v /etc/localtime:/etc/localtime:ro "
 CONFIG="--config /sitespeed.io/$SERVER/config"
 sudo modprobe ifb numifbs=1
 
