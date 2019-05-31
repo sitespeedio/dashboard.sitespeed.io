@@ -5,5 +5,8 @@
       "profile": "3g"
     },
     "mobile": true
+  },
+  "chrome": {
+    "CPUThrottlingRate": 5
   }
 }
