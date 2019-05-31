@@ -1,0 +1,9 @@
+{
+  "extends": "./desktop.json",
+  "browsertime": {
+    "connectivity": {
+      "profile": "3g"
+    },
+    "mobile": true
+  }
+}
