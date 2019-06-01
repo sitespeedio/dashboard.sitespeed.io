@@ -2,17 +2,17 @@
 
 This is a working example of how you can use sitespeed.io to monitor the performance of your web site. The code run on an instance on Digital Ocean and send the metrics to [dashboard.sitepeed.io](https://dashboard.sitespeed.io) (that is setup using https://github.com/sitespeedio/sitespeed.io/blob/master/docker/docker-compose.yml and configured for production usage).
 
-You should use this repository as an example of what you can setup yourself. The idea is to make it easy to setup, easy to add new URLs to test and easy to add a new user journey. You start the a script (**loop.sh**) on your server that runs forever but for each iteration, it runs git pull and update the scripts so that if you add new URLs to test, they are automatically picked up. 
+You should use this repository as an example of what you can setup yourself. The idea is to make it easy to setup, easy to add new URLs to test and easy to add a new user journey. You start the a script ([**loop.sh**](https://github.com/sitespeedio/dashboard.sitespeed.io/blob/master/loop.sh)) on your server that runs forever but for each iteration, it runs git pull and update the scripts so that if you add new URLs to test, they are automatically picked up. 
 
-Most of you run is configured in the config files + the filename is the Graphite namespace(´--graphite.namespace´). 
+Most of you run is configured in the config files + the filename is the Graphite namespace(`--graphite.namespace`). 
 
-Do you want to add a new URL to test on desktop? Navigate to **desktop/urls** and create your new file there. Want to add a user journey? Add the script in **desktop/scripts**.
+Do you want to add a new URL to test on desktop? Navigate to [**desktop/urls**](https://github.com/sitespeedio/dashboard.sitespeed.io/tree/master/nyc3-1/desktop/urls) and create your new file there. Want to add a user journey? Add the script in [**desktop/scripts**](https://github.com/sitespeedio/dashboard.sitespeed.io/tree/master/nyc3-1/desktop/scripts).
 
-Our example run tests for desktop, emulated mobile (both URLs and scripts), testing using WebPageReplay (replay) and WebPageTest (webpagetest). But you probably don't need all that so you can remove the code in the **run.sh** script.
+Our example run tests for desktop, emulated mobile (both URLs and scripts), testing using WebPageReplay (replay) and WebPageTest (webpagetest). But you probably don't need all that so you can remove the code in the [**run.sh**](https://github.com/sitespeedio/dashboard.sitespeed.io/blob/master/run.sh) script.
 
 The structure looks like this:
 
-´´´
+<pre>
 .
 ├── config
 │   ├── desktop.json
@@ -43,9 +43,9 @@ The structure looks like this:
 │       └── urls
 │           └── news.txt
 └── run.sh
-´´´
+</pre>
 
-The **loop.sh** is the start point. Run it and feed it with the folder name of the server (in our case we only run the tests on server names *nyc3-1*). That script will git pull the rep for every iteration and run the script **run.sh**. 
+The [**loop.sh**](https://github.com/sitespeedio/dashboard.sitespeed.io/blob/master/loop.sh) is the start point. Run it and feed it with the folder name of the server (in our case we only run the tests on server names *nyc3-1*). That script will git pull the rep for every iteration and run the script [**run.sh**](https://github.com/sitespeedio/dashboard.sitespeed.io/blob/master/run.sh). 
 
 Then **run.sh** will use the right configuration in /config/ and run the URLs/scripts that are configured. Our configuration files extends configuration files that only exits on the server where we hold secret information like username and passwords. You don't need set it up that way, if you use a private git repo.
 
