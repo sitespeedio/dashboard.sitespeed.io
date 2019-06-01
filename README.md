@@ -142,7 +142,7 @@ And then start: `nohup ./loop.sh nyc3-1 &`
 
 To verify that everything works you should tail the log: `tail -f /tmp/sitespeed.io`
 
-## Stop you tests
+## Stop your tests
 
 Starting your test creates a file named **sitespeed.run** in your current folder. The script on the server will continue to run forever until you remove the control file:
 `rm sitespeed.run`
