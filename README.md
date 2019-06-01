@@ -1,6 +1,6 @@
 # Tests running for dashboard.sitespeed.io
 
-This is a working example of how you can use sitespeed.io to monitor the performance of your web site. The code run on an instance on Digital Ocean and send the metrics to [dashboard.sitepeed.io](https://dashboard.sitespeed.io) (that is setup using https://github.com/sitespeedio/sitespeed.io/blob/master/docker/docker-compose.yml and configured for production usage).
+This is a working example of how you can use sitespeed.io to monitor the performance of your web site. The code run on an instance on Digital Ocean and send the metrics to [dashboard.sitepeed.io](https://dashboard.sitespeed.io) (that is setup using our [docker-compose file](https://github.com/sitespeedio/sitespeed.io/blob/master/docker/docker-compose.yml) and configured for production usage).
 
 You should use this repository as an example of what you can setup yourself. The idea is to make it easy to setup, easy to add new URLs to test and easy to add a new user journey. You start the a script ([**loop.sh**](https://github.com/sitespeedio/dashboard.sitespeed.io/blob/master/loop.sh)) on your server that runs forever but for each iteration, it runs git pull and update the scripts so that if you add new URLs to test, they are automatically picked up. 
 
@@ -8,7 +8,7 @@ Most of you run is configured in the config files + the filename is the Graphite
 
 Do you want to add a new URL to test on desktop? Navigate to [**desktop/urls**](https://github.com/sitespeedio/dashboard.sitespeed.io/tree/master/nyc3-1/desktop/urls) and create your new file there. Want to add a user journey? Add the script in [**desktop/scripts**](https://github.com/sitespeedio/dashboard.sitespeed.io/tree/master/nyc3-1/desktop/scripts).
 
-Our example run tests for [desktop](https://github.com/sitespeedio/dashboard.sitespeed.io/tree/master/nyc3-1/desktop), [emulated mobile](https://github.com/sitespeedio/dashboard.sitespeed.io/tree/master/nyc3-1/mobile) (both URLs and scripts), testing using WebPageReplay ([replay](https://github.com/sitespeedio/dashboard.sitespeed.io/tree/master/nyc3-1/replay/urls)) and WebPageTest ([webpagetest](https://github.com/sitespeedio/dashboard.sitespeed.io/tree/master/nyc3-1/webpagetest/urls). But you probably don't need all that so you can remove the code in the [**run.sh**](https://github.com/sitespeedio/dashboard.sitespeed.io/blob/master/run.sh) script.
+Our example run tests for [desktop](https://github.com/sitespeedio/dashboard.sitespeed.io/tree/master/nyc3-1/desktop), [emulated mobile](https://github.com/sitespeedio/dashboard.sitespeed.io/tree/master/nyc3-1/mobile) (both URLs and scripts), testing using WebPageReplay ([replay](https://github.com/sitespeedio/dashboard.sitespeed.io/tree/master/nyc3-1/replay/urls)) and WebPageTest ([webpagetest](https://github.com/sitespeedio/dashboard.sitespeed.io/tree/master/nyc3-1/webpagetest/urls)). But you probably don't need all that so you can remove the code in the [**run.sh**](https://github.com/sitespeedio/dashboard.sitespeed.io/blob/master/run.sh) script.
 
 The structure looks like this:
 
