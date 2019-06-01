@@ -38,7 +38,7 @@ function control() {
 
 # We use the autobuild to always test our new functionality. But YOU should not do that!
 # Instead use the latest tagged version as the next row
-# DOCKER_CONTAINER=sitespeedio/sitespeed.io:9.2.0
+# DOCKER_CONTAINER=sitespeedio/sitespeed.io:9.2.1
 
 DOCKER_CONTAINER=sitespeedio/sitespeed.io-autobuild:latest
 DOCKER_SETUP="--cap-add=NET_ADMIN  --shm-size=2g --rm -v /config:/config -v "$(pwd)":/sitespeed.io -v /etc/localtime:/etc/localtime:ro "
