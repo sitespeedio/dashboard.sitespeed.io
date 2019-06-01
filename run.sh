@@ -76,7 +76,7 @@ do
 
     for urls in $SERVER/webpagetest/urls/* ; do
         NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${urls%.*})"
-        docker run $DOCKER_SETUP -e REPLAY=true -e LATENCY=100 $DOCKER_CONTAINER $NAMESPACE $CONFIG/webpagetest.json $urls
+        docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/webpagetest.json $urls
         control
     done
 
