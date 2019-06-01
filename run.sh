@@ -39,6 +39,7 @@ function control() {
 # We use the autobuild to always test our new functionality. But YOU should not do that!
 # Instead use the latest tagged version as the next row
 # DOCKER_CONTAINER=sitespeedio/sitespeed.io:9.2.0
+
 DOCKER_CONTAINER=sitespeedio/sitespeed.io-autobuild:latest
 DOCKER_SETUP="--cap-add=NET_ADMIN  --shm-size=2g --rm -v /config:/config -v "$(pwd)":/sitespeed.io -v /etc/localtime:/etc/localtime:ro "
 CONFIG="--config /sitespeed.io/config"
@@ -50,7 +51,7 @@ sudo modprobe ifb numifbs=1
 # We loop through all directories we have
 # We run many tests to verify the functionality of sitespeed.io and you can simplify this by
 # removing things you don't need!
-o
+
 while true
 do
     for urls in $SERVER/desktop/urls/* ; do
