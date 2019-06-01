@@ -13,10 +13,6 @@ module.exports = async function(context, commands) {
     const userName = context.options.wikipedia.user;
     const password = context.options.wikipedia.password;
 
-    if (!userName || !password) {
-      context.log.error("No username or password");
-    }
-
     await commands.addText.byId(userName, "wpName1");
     await commands.addText.byId(password, "wpPassword1");
 
