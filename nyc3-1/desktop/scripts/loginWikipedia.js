@@ -12,6 +12,11 @@ module.exports = async function(context, commands) {
     // Add text into an input field, finding the field by id
     const userName = context.options.wikipedia.user;
     const password = context.options.wikipedia.password;
+
+    if (!userName || !password) {
+      context.log.error("No username or password");
+    }
+
     await commands.addText.byId(userName, "wpName1");
     await commands.addText.byId(password, "wpPassword1");
 
@@ -31,6 +36,7 @@ module.exports = async function(context, commands) {
       "https://en.wikipedia.org/wiki/President_of_the_United_States"
     );
   } catch (e) {
+    context.log.error(e);
     // We try/catch so we will catch if the the input fields can't be found
     // The error is automatically logged in Browsertime and re-thrown here
   }
