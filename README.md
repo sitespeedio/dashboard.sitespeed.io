@@ -1,4 +1,4 @@
-# Tests running for dashboard.sitespeed.io
+# Tests running dashboard.sitespeed.io
 
 This is a working example of how you can use sitespeed.io to monitor the performance of your web site. The code run on an instance on Digital Ocean and send the metrics to [dashboard.sitepeed.io](https://dashboard.sitespeed.io) (that is setup using our [docker-compose file](https://github.com/sitespeedio/sitespeed.io/blob/master/docker/docker-compose.yml) and configured for production usage).
 
@@ -50,7 +50,7 @@ The [**loop.sh**](https://github.com/sitespeedio/dashboard.sitespeed.io/blob/mas
 Then **run.sh** will use the right configuration in [**/config/**](https://github.com/sitespeedio/dashboard.sitespeed.io/tree/master/config) and run the URLs/scripts that are configured. Our configuration files extends configuration files that only exits on the server where we hold secret information like username and passwords. You don't need set it up that way, if you use a private git repo.
 
 ## Install
-Run your tests on a Linux machine. You will need Docker and Git. You can follow [Dockers official documentation](https://docs.docker.com/install/linux/docker-ce/ubuntu/) or follow our instructuctions:
+Run your tests on a Linux machine. You will need Docker and Git. You can follow [Dockers official documentation](https://docs.docker.com/install/linux/docker-ce/ubuntu/) or follow our instructions:
 
 ```bash
 # Update 
@@ -62,7 +62,7 @@ sudo apt-get install \
     gnupg-agent \
     software-properties-common -y
 
-## Add officual key
+## Add official key
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -    
 
 ## Add repo
@@ -140,7 +140,7 @@ And then start: `nohup ./loop.sh nyc3-1 &`
 
 *nyc3-1* is the name of the start directory for the tests. If we would run multiple servers with different tests, we would have multiple folders and start each server differently.
 
-To verify that everything works you shoud tail the log: `tail -f /tmp/sitespeed.io`
+To verify that everything works you should tail the log: `tail -f /tmp/sitespeed.io`
 
 ## Stop you tests
 
@@ -150,7 +150,7 @@ Starting your test creates a file named **sitespeed.run** in your current folder
 The script will then stop when it has finished the current run(s).
 
 ## Start on reboot
-Sometimes your cloud server reboots. To make sure it auto start your tests, you can add it to the crontab. Edit the crontab with `crontab -e` amd add (make sure to change the path to your installation):
+Sometimes your cloud server reboots. To make sure it auto start your tests, you can add it to the crontab. Edit the crontab with `crontab -e` and add (make sure to change the path to your installation):
 
 ```bash
 @reboot rm /home/ubuntu/dashboard.sitespeed.io/sitespeed.run;/home/ubuntu/dashboard.sitespeed.io/loop.sh
