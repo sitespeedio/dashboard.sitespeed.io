@@ -150,8 +150,8 @@ Starting your test creates a file named **sitespeed.run** in your current folder
 The script will then stop when it has finished the current run(s).
 
 ## Start on reboot
-Sometimes your cloud server reboots. To make sure it auto start your tests, you can add it to the crontab. Edit the crontab with `crontab -e` and add (make sure to change the path to your installation):
+Sometimes your cloud server reboots. To make sure it auto start your tests, you can add it to the crontab. Edit the crontab with `crontab -e` and add (make sure to change the path to your installation and the server name):
 
 ```bash
-@reboot rm /home/ubuntu/dashboard.sitespeed.io/sitespeed.run;/home/ubuntu/dashboard.sitespeed.io/loop.sh
+@reboot rm /home/ubuntu/dashboard.sitespeed.io/sitespeed.run;/home/ubuntu/dashboard.sitespeed.io/loop.sh nyc3-1
 ```
