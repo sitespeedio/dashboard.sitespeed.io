@@ -1,6 +1,6 @@
 # Tests running dashboard.sitespeed.io
 
-This is a working example of how you can use sitespeed.io to monitor the performance of your web site. The code run on an instance on Digital Ocean and send the metrics to [dashboard.sitepeed.io](https://dashboard.sitespeed.io) (that is setup using our [docker-compose file](https://github.com/sitespeedio/sitespeed.io/blob/master/docker/docker-compose.yml) and configured for production usage).
+This is a working example of how you can use sitespeed.io to monitor the performance of your web site. The code run on an instance on Digital Ocean and send the metrics to [dashboard.sitespeed.io](https://dashboard.sitespeed.io) (that is setup using our [docker-compose file](https://github.com/sitespeedio/sitespeed.io/blob/master/docker/docker-compose.yml) and configured for production usage).
 
 You should use this repository as an example of what you can setup yourself. The idea is to make it easy to setup, easy to add new URLs to test and easy to add a new user journey. You start the a script ([**loop.sh**](https://github.com/sitespeedio/dashboard.sitespeed.io/blob/master/loop.sh)) on your server that runs forever but for each iteration, it runs git pull and update the scripts so that if you add new URLs to test, they are automatically picked up. 
 
@@ -150,8 +150,8 @@ Starting your test creates a file named **sitespeed.run** in your current folder
 The script will then stop when it has finished the current run(s).
 
 ## Start on reboot
-Sometimes your cloud server reboots. To make sure it auto start your tests, you can add it to the crontab. Edit the crontab with `crontab -e` and add (make sure to change the path to your installation):
+Sometimes your cloud server reboots. To make sure it auto start your tests, you can add it to the crontab. Edit the crontab with `crontab -e` and add (make sure to change the path to your installation and the server name):
 
 ```bash
-@reboot rm /home/ubuntu/dashboard.sitespeed.io/sitespeed.run;/home/ubuntu/dashboard.sitespeed.io/loop.sh
+@reboot rm /home/ubuntu/dashboard.sitespeed.io/sitespeed.run;/home/ubuntu/dashboard.sitespeed.io/loop.sh nyc3-1
 ```
