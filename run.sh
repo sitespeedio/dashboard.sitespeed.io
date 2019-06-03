@@ -57,6 +57,8 @@ do
     for urls in $SERVER/desktop/urls/* ; do
       for browser in "${BROWSERS[@]}"
         do
+          # Note: If you use dots in your name you need to replace them before sending to Graphite
+          # GRAPHITE_NAMESPACE=${GRAPHITE_NAMESPACE//[-.]/_}
           NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${urls%.*})"
           docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/desktop.json -b $browser $urls
           control
