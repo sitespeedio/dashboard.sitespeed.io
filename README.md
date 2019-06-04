@@ -140,7 +140,7 @@ And then start: `nohup ./loop.sh nyc3-1 &`
 
 *nyc3-1* is the name of the start directory for the tests. If we would run multiple servers with different tests, we would have multiple folders and start each server differently.
 
-To verify that everything works you should tail the log: `tail -f /tmp/sitespeed.io`
+To verify that everything works you should tail the log: `tail -f /tmp/sitespeed.io.log`
 
 ## Stop your tests
 
