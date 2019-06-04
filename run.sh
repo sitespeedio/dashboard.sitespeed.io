@@ -63,26 +63,30 @@ for urls in $SERVER/desktop/urls/* ; do
     done
 done
 
-for urls in $SERVER/desktop/scripts/* ; do
-    NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${urls%.*})"
-    docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/desktop.json --multi --spa $urls
+for scripts in $SERVER/desktop/scripts/* ; do
+    [ -e "$scripts" ] || continue
+    NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${scripts%.*})"
+    docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/desktop.json --multi --spa $scripts
     control
 done
 
 for urls in $SERVER/mobile/urls/* ; do
+    [ -e "$urls" ] || continue
     NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${urls%.*})"
     docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/mobile.json $urls
     control
 done
 
-for urls in $SERVER/mobile/scripts/* ; do
-    NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${urls%.*})"
-    docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/mobile.json --multi --spa $urls
+for scripts in $SERVER/mobile/scripts/* ; do
+    [ -e "$scripts" ] || continue
+    NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${scripts%.*})"
+    docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/mobile.json --multi --spa $scripts
     control
 done
 
 # We run WebPageReplay just to verify that it works
 for urls in $SERVER/replay/urls/* ; do
+    [ -e "$urls" ] || continue
     NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${urls%.*})"
     docker run $DOCKER_SETUP -e REPLAY=true -e LATENCY=100 $DOCKER_CONTAINER $NAMESPACE $CONFIG/replay.json $urls
     control
@@ -90,6 +94,7 @@ done
 
 # We run WebPageTest runs to verify the WebPageTest functionality and dashboards
 for urls in $SERVER/webpagetest/urls/* ; do
+    [ -e "$urls" ] || continue
     NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${urls%.*})"
     docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/webpagetest.json $urls
     control
