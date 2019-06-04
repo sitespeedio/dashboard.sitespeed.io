@@ -52,51 +52,59 @@ sudo modprobe ifb numifbs=1
 # We run many tests to verify the functionality of sitespeed.io and you can simplify this by
 # removing things you don't need!
 
-for urls in $SERVER/desktop/urls/* ; do
+for url in $SERVER/desktop/urls/* ; do
   for browser in "${BROWSERS[@]}"
     do
       # Note: If you use dots in your name you need to replace them before sending to Graphite
       # GRAPHITE_NAMESPACE=${GRAPHITE_NAMESPACE//[-.]/_}
-      NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${urls%.*})"
-      docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/desktop.json -b $browser $urls
+      NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${url%.*})"
+      docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/desktop.json -b $browser $url
       control
     done
 done
 
-for scripts in $SERVER/desktop/scripts/* ; do
-    [ -e "$scripts" ] || continue
-    NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${scripts%.*})"
-    docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/desktop.json --multi --spa $scripts
+for script in $SERVER/desktop/scripts/* ; do
+    [ -e "$script" ] || continue
+    NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${script%.*})"
+    docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/desktop.json --multi --spa $script
     control
 done
 
-for urls in $SERVER/mobile/urls/* ; do
-    [ -e "$urls" ] || continue
-    NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${urls%.*})"
-    docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/mobile.json $urls
+for url in $SERVER/mobile/urls/* ; do
+    [ -e "$url" ] || continue
+    NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${url%.*})"
+    docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/mobile.json $url
     control
 done
 
-for scripts in $SERVER/mobile/scripts/* ; do
-    [ -e "$scripts" ] || continue
-    NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${scripts%.*})"
-    docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/mobile.json --multi --spa $scripts
+for script in $SERVER/mobile/scripts/* ; do
+    [ -e "$script" ] || continue
+    NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${script%.*})"
+    docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/mobile.json --multi --spa $script
     control
 done
 
 # We run WebPageReplay just to verify that it works
-for urls in $SERVER/replay/urls/* ; do
-    [ -e "$urls" ] || continue
-    NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${urls%.*})"
-    docker run $DOCKER_SETUP -e REPLAY=true -e LATENCY=100 $DOCKER_CONTAINER $NAMESPACE $CONFIG/replay.json $urls
+for url in $SERVER/replay/urls/* ; do
+    [ -e "$url" ] || continue
+    NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${url%.*})"
+    docker run $DOCKER_SETUP -e REPLAY=true -e LATENCY=100 $DOCKER_CONTAINER $NAMESPACE $CONFIG/replay.json $url
     control
 done
 
 # We run WebPageTest runs to verify the WebPageTest functionality and dashboards
-for urls in $SERVER/webpagetest/urls/* ; do
-    [ -e "$urls" ] || continue
-    NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${urls%.*})"
-    docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/webpagetest.json $urls
+for url in $SERVER/webpagetest/urls/* ; do
+    [ -e "$url" ] || continue
+    NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${url%.*})"
+    docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/webpagetest.json $url
+    control
+done
+
+# You can also test using WebPageTest scripts
+for script in $SERVER/webpagetest/scripts/* ; do
+    [ -e "$script" ] || continue
+    NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${script%.*})"
+    docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/webpagetest.json --plugins.remove browsertime --webpagetest.file $script https://www.example.org/
     control
 done
 
