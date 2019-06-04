@@ -52,54 +52,51 @@ sudo modprobe ifb numifbs=1
 # We run many tests to verify the functionality of sitespeed.io and you can simplify this by
 # removing things you don't need!
 
-while true
-do
-    for urls in $SERVER/desktop/urls/* ; do
-      for browser in "${BROWSERS[@]}"
-        do
-          # Note: If you use dots in your name you need to replace them before sending to Graphite
-          # GRAPHITE_NAMESPACE=${GRAPHITE_NAMESPACE//[-.]/_}
-          NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${urls%.*})"
-          docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/desktop.json -b $browser $urls
-          control
-        done
+for urls in $SERVER/desktop/urls/* ; do
+  for browser in "${BROWSERS[@]}"
+    do
+      # Note: If you use dots in your name you need to replace them before sending to Graphite
+      # GRAPHITE_NAMESPACE=${GRAPHITE_NAMESPACE//[-.]/_}
+      NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${urls%.*})"
+      docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/desktop.json -b $browser $urls
+      control
     done
-
-    for urls in $SERVER/desktop/scripts/* ; do
-        NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${urls%.*})"
-        docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/desktop.json --multi --spa $urls
-        control
-    done
-
-    for urls in $SERVER/mobile/urls/* ; do
-        NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${urls%.*})"
-        docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/mobile.json $urls
-        control
-    done
-
-    for urls in $SERVER/mobile/scripts/* ; do
-        NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${urls%.*})"
-        docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/mobile.json --multi --spa $urls
-        control
-    done
-
-    # We run WebPageReplay just to verify that it works
-    for urls in $SERVER/replay/urls/* ; do
-        NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${urls%.*})"
-        docker run $DOCKER_SETUP -e REPLAY=true -e LATENCY=100 $DOCKER_CONTAINER $NAMESPACE $CONFIG/replay.json $urls
-        control
-    done
-
-    # We run WebPageTest runs to verify the WebPageTest functionality and dashboards
-    for urls in $SERVER/webpagetest/urls/* ; do
-        NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${urls%.*})"
-        docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/webpagetest.json $urls
-        control
-    done
-
-    # Remove the current container so we fetch the latest autobuild the next time
-    # If you run a stable version (as YOU should), you don't need to remove the container
-    docker system prune --all --volumes -f
-    sleep 20
 done
+
+for urls in $SERVER/desktop/scripts/* ; do
+    NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${urls%.*})"
+    docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/desktop.json --multi --spa $urls
+    control
+done
+
+for urls in $SERVER/mobile/urls/* ; do
+    NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${urls%.*})"
+    docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/mobile.json $urls
+    control
+done
+
+for urls in $SERVER/mobile/scripts/* ; do
+    NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${urls%.*})"
+    docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/mobile.json --multi --spa $urls
+    control
+done
+
+# We run WebPageReplay just to verify that it works
+for urls in $SERVER/replay/urls/* ; do
+    NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${urls%.*})"
+    docker run $DOCKER_SETUP -e REPLAY=true -e LATENCY=100 $DOCKER_CONTAINER $NAMESPACE $CONFIG/replay.json $urls
+    control
+done
+
+# We run WebPageTest runs to verify the WebPageTest functionality and dashboards
+for urls in $SERVER/webpagetest/urls/* ; do
+    NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${urls%.*})"
+    docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/webpagetest.json $urls
+    control
+done
+
+# Remove the current container so we fetch the latest autobuild the next time
+# If you run a stable version (as YOU should), you don't need to remove the container
+docker system prune --all --volumes -f
+sleep 20
 
