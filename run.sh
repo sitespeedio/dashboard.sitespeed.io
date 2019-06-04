@@ -53,6 +53,7 @@ sudo modprobe ifb numifbs=1
 # removing things you don't need!
 
 for url in $SERVER/desktop/urls/* ; do
+  [ -e "$url" ] || continue
   for browser in "${BROWSERS[@]}"
     do
       # Note: If you use dots in your name you need to replace them before sending to Graphite
