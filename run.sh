@@ -113,4 +113,5 @@ done
 # If you run a stable version (as YOU should), you don't need to remove the container
 docker system prune --all --volumes -f
 sleep 20
+rm $CONTROL_FILE
 
