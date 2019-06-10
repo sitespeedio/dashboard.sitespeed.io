@@ -9,11 +9,11 @@
     "iterations": 3,
     "browser": "chrome",
     "video": true,
-    "visualMetric": true
-  },
-  "chrome": {
-    "collectConsoleLog": true,
-    "enableTraceScreenshots": true
+    "visualMetric": true,
+    "chrome": {
+      "collectConsoleLog": true,
+      "enableTraceScreenshots": true
+    }
   },
   "cpu": true,
   "gzipHAR": true,
