@@ -15,7 +15,8 @@
   "chrome": {
     "CPUThrottlingRate": 5,
     "collectConsoleLog": true,
-    "includeResponseBodies": "html"
+    "includeResponseBodies": "html",
+    "enableTraceScreenshots": true
   },
   "cpu": true,
   "gzipHAR": true,

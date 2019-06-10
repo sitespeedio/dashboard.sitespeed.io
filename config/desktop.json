@@ -12,7 +12,8 @@
     "visualMetric": true
   },
   "chrome": {
-    "collectConsoleLog": true
+    "collectConsoleLog": true,
+    "enableTraceScreenshots": true
   },
   "cpu": true,
   "gzipHAR": true,
