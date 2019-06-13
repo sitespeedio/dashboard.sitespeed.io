@@ -93,7 +93,7 @@ On our server we clone this repo but you should clone your own :)
 git clone https://github.com/sitespeedio/dashboard.sitespeed.io.git
 ```
 
-On our server we have two configuration files that only exits on that server, that's where we have the secrets. The look like this: 
+On our server we have two configuration files that only exits on that server, that's where we have the secrets. They look like this: 
 
 **/conf/secrets.json**
 ```json
