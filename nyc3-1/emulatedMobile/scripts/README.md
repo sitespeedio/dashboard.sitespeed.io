@@ -1,0 +1,2 @@
+# Scripts
+Here are the [scripts](https://www.sitespeed.io/documentation/sitespeed.io/scripting/) to test user journeys. They will be tested as emulated mobile (desktop Chrome running in mobile emulation mode). Each file is a plain text file, with one URL on each row.
