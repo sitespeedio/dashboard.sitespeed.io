@@ -23,6 +23,7 @@
   "html": {
     "fetchHARFiles": true
   },
+  "mobile": true,
   "screenshot": {
     "type": "jpg"
   }
