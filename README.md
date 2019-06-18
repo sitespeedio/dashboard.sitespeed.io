@@ -133,6 +133,17 @@ On our server we have two configuration files that only exits on that server, th
 }
 ```
 
+We also have a env config on the server:
+**/conf/env**
+```
+SITESPEED_IO_BROWSERTIME__WIKIPEDIA__USER=username
+SITESPEED_IO_BROWSERTIME__WIKIMEPIA__PASSWORD=secret
+```
+
+that is used for secrets that we want to use inside of scripts. You can see how that is used in [our login test script](https://github.com/sitespeedio/dashboard.sitespeed.io/blob/master/nyc3-1/desktop/scripts/loginWikipedia.js). 
+
+The environment variables automatically picked by our CLI. *SITESPEED_IO_BROWSERTIME__WIKIPEDIA__USER* will be *wikipedia.user* in our options object.
+
 ## Run
 
 Go into the directory that where you cloned the directory: `cd dashboard.sitespeed.io`
