@@ -166,3 +166,7 @@ Sometimes your cloud server reboots. To make sure it auto start your tests, you 
 ```bash
 @reboot rm /root/dashboard.sitespeed.io/sitespeed.run;cd /root/dashboard.sitespeed.io/ && ./loop.sh nyc3-1
 ```
+
+## Namespace in Graphite
+
+The first part before the first dot in the filename will be appended to the Graphite namespace namespace (`--graphite.namespace`). If your file is named *login.js* the namespace will be `login`. If your file is named *login.2.js* the namespace is still `login`.
