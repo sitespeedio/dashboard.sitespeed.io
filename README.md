@@ -1,5 +1,7 @@
 # Tests running dashboard.sitespeed.io
 
+[![Build status][travis-image]][travis-url]
+
 This is a working example of how you can use sitespeed.io to monitor the performance of your web site. The code run on an instance on Digital Ocean and send the metrics to [dashboard.sitespeed.io](https://dashboard.sitespeed.io) (that is setup using our [docker-compose file](https://github.com/sitespeedio/sitespeed.io/blob/master/docker/docker-compose.yml) and configured for production usage).
 
 You should use this repository as an example of what you can setup yourself. The idea is to make it easy to setup, easy to add new URLs to test and easy to add a new user journey. You start the a script ([**loop.sh**](https://github.com/sitespeedio/dashboard.sitespeed.io/blob/master/loop.sh)) on your server that runs forever but for each iteration, it runs git pull and update the scripts so that if you add new URLs to test, they are automatically picked up. 
@@ -170,3 +172,6 @@ Sometimes your cloud server reboots. To make sure it auto start your tests, you 
 ## Namespace in Graphite
 
 The first part before the first dot in the filename will be appended to the Graphite namespace namespace (`--graphite.namespace`). If your file is named *login.js* the namespace will be `login`. If your file is named *login.2.js* the namespace is still `login`.
+
+[travis-image]: https://img.shields.io/travis/sitespeedio/dashboard.sitespeed.io.svg?style=flat-square
+[travis-url]: https://travis-ci.org/sitespeedio/dashboard.sitespeed.io
