@@ -7,9 +7,11 @@ module.exports = async function(context, commands) {
     'https://dashboard.sitespeed.io/d/000000044/page-timing-metrics?orgId=1',
     'pageTimingMetricsDefault'
   );
-  await commands.click.byClassName('gf-timepicker-nav-btn');
+  await commands.click.byClassName(
+    'btn navbar-button navbar-button--tight time-picker-button-select'
+  );
   await commands.wait.byTime(1000);
   await commands.measure.start('pageTimingMetrics30Days');
-  await commands.click.byLinkTextAndWait('Last 30 days');
+  await commands.click.byIdAndWait('react-select-2-option-11');
   await commands.measure.stop();
 };
