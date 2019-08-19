@@ -1,15 +1,13 @@
 {
-  "name": "dashboard.sitespeed.io",
-  "version": "0.0.1",
-  "description": "Synthetic test for dashboard.sitespeed.io",
+  "private": true,
   "license": "MIT",
   "scripts": {
     "test": "eslint . --ext .json --ext .js",
     "lint:fix": "eslint . --fix --ext .json --ext .js"
   },
   "devDependencies": {
-    "eslint": "^6.0.1",
-    "eslint-config-prettier": "^3.1.0",
+    "eslint": "^6.2.0",
+    "eslint-config-prettier": "^6.1.0",
     "eslint-plugin-prettier": "^3.1.0",
     "prettier": "^1.18.2",
     "eslint-plugin-json": "^1.4.0"
