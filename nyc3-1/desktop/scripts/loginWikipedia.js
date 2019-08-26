@@ -19,14 +19,27 @@ module.exports = async function(context, commands) {
     // Start the measurement before we click on the
     // submit button. Sitespeed.io will start the video recording
     // and prepare everything.
+    // But first we hide all elements to avoid a too early first visual change
+    // caused by the submit button.
+    await commands.js.run(
+      'for (let node of document.body.childNodes) { if (node.style) node.style.display = "none";}'
+    );
     await commands.measure.start('login');
     // Find the sumbit button and click it and then wait
     // for the pageCompleteCheck to finish
     await commands.click.byIdAndWait('wpLoginAttempt');
     // Stop and collect the measurement before the next page we want to measure
     await commands.measure.stop();
+    await commands.wait.byTime(21000);
+    await commands.js.run(
+      'document.body.innerHTML = ""; document.body.style.backgroundColor = "white";'
+    );
     // Measure the Barack Obama page as a logged in user
     await commands.measure.start('https://en.wikipedia.org/wiki/Barack_Obama');
+    await commands.wait.byTime(21000);
+    await commands.js.run(
+      'document.body.innerHTML = ""; document.body.style.backgroundColor = "white";'
+    );
     // And then measure the president page
     return commands.measure.start(
       'https://en.wikipedia.org/wiki/President_of_the_United_States'
