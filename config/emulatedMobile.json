@@ -21,7 +21,8 @@
   "cpu": true,
   "gzipHAR": true,
   "html": {
-    "fetchHARFiles": true
+    "fetchHARFiles": true,
+    "showScript": true
   },
   "mobile": true,
   "screenshot": {

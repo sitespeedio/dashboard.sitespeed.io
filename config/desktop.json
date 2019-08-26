@@ -18,7 +18,8 @@
   "cpu": true,
   "gzipHAR": true,
   "html": {
-    "fetchHARFiles": true
+    "fetchHARFiles": true,
+    "showScript": true
   },
   "screenshot": {
     "type": "jpg"
