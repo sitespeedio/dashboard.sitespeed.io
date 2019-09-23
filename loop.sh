@@ -39,8 +39,8 @@ function control() {
 }
 
 # Verify that folder exist
-if [ ! -d "tests/$SERVER" ]; then
-  echo "The directory tests/$SERVER was not found, you need to check your start parameter"
+if [ ! -d "$SERVER" ]; then
+  echo "The directory $SERVER was not found, you need to check your start parameter"
   rm $CONTROL_FILE
   exit 1
 fi
