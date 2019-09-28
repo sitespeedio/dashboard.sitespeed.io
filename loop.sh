@@ -14,7 +14,7 @@ then
     exit 1
 fi
 
-TESTS=( "$@" )t
+TESTS=( "$@" )
 
 # You cannot start multiple instances!
 if [ -f "$CONTROL_FILE" ]
