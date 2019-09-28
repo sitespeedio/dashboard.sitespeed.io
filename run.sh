@@ -25,9 +25,12 @@ done
 
 for script in tests/$TEST/desktop/scripts/*.js ; do
     [ -e "$script" ] || continue
-    NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${script%%.*})"
-    docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/desktop.json --multi --spa $script
-    control
+    for browser in "${BROWSERS[@]}"
+        do
+            NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${script%%.*})"
+            docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/desktop.json --multi -b $browser --spa $script
+            control
+        done
 done
 
 for url in tests/$TEST/emulatedMobile/urls/*.txt ; do
