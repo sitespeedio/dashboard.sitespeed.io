@@ -69,6 +69,8 @@ for script in $SERVER/webpagetest/desktop/scripts/* ; do
 done
 
 # Remove the current container so we fetch the latest autobuild the next time
-# If you run a stable version (as YOU should), you don't need to remove the container
+# If you run a stable version (as YOU should), you don't need to remove the container,
+# instead make sure you remove all volumes (of data)
+# docker volume prune -f
 docker system prune --all --volumes -f
 sleep 20
