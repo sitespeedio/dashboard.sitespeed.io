@@ -15,36 +15,39 @@ Our example run tests for [desktop](https://github.com/sitespeedio/dashboard.sit
 The structure looks like this:
 
 <pre>
-.
+ .
 ├── config
 │   ├── desktop.json
-│   ├── mobile.json
+│   ├── desktopWithExtras.json
+│   ├── emulatedMobile.json
 │   ├── replay.json
 │   └── webpagetest.json
 ├── loop.sh
-├── nyc3-1
-│   ├── desktop
-│   │   ├── scripts
-│   │   │   ├── desktopMulti.js
-│   │   │   ├── loginWikipedia.js
-│   │   │   └── spa.js
-│   │   └── urls
-│   │       ├── alexaDesktop.txt
-│   │       ├── desktop.txt
-│   │       └── publicSectorDesktop.txt
-│   ├── mobile
-│   │   ├── scripts
-│   │   │   └── emulatedMobileMulti.js
-│   │   └── urls
-│   │       ├── alexaMobile.txt
-│   │       └── emulatedMobile.txt
-│   ├── replay
-│   │   └── urls
-│   │       └── replay.txt
-│   └── webpagetest
-│       └── urls
-│           └── news.txt
-└── run.sh
+├── run.sh
+└── tests
+    └── nyc3-1
+        ├── desktop
+        │   ├── scripts
+        │   │   ├── desktopMulti.js
+        │   │   ├── loginWikipedia.js
+        │   │   └── spa.js
+        │   └── urls
+        │       ├── alexaDesktop.txt
+        │       ├── desktop.txt
+        │       └── publicSectorDesktop.txt
+        ├── emulatedMobile
+        │   ├── scripts
+        │   │   └── emulatedMobileMulti.js
+        │   └── urls
+        │       ├── alexaMobile.txt
+        │       └── emulatedMobile.txt
+        ├── replay
+        │   └── urls
+        │       └── replay.txt
+        └── webpagetest
+            └── desktop
+                └── urls
+                    └── news.txt
 </pre>
 
 The [**loop.sh**](https://github.com/sitespeedio/dashboard.sitespeed.io/blob/master/loop.sh) is the start point. Run it and feed it with the folder name of the server (in our case we only run the tests on server names *nyc3-1*). That script will git pull the rep for every iteration and run the script [**run.sh**](https://github.com/sitespeedio/dashboard.sitespeed.io/blob/master/run.sh). 

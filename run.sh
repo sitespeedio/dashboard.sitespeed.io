@@ -13,7 +13,7 @@ BROWSERS=(chrome firefox)
 # We run many tests to verify the functionality of sitespeed.io and you can simplify this by
 # removing things you don't need!
 
-for url in $SERVER/desktop/urls/*.txt ; do
+for url in tests/$TEST/desktop/urls/*.txt ; do
   [ -e "$url" ] || continue
   for browser in "${BROWSERS[@]}"
     do
@@ -23,21 +23,21 @@ for url in $SERVER/desktop/urls/*.txt ; do
     done
 done
 
-for script in $SERVER/desktop/scripts/*.js ; do
+for script in tests/$TEST/desktop/scripts/*.js ; do
     [ -e "$script" ] || continue
     NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${script%%.*})"
     docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/desktop.json --multi --spa $script
     control
 done
 
-for url in $SERVER/emulatedMobile/urls/*.txt ; do
+for url in tests/$TEST/emulatedMobile/urls/*.txt ; do
     [ -e "$url" ] || continue
     NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${url%%.*})"
     docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/emulatedMobile.json $url
     control
 done
 
-for script in $SERVER/emulatedMobile/scripts/*.js ; do
+for script in tests/$TEST/emulatedMobile/scripts/*.js ; do
     [ -e "$script" ] || continue
     NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${script%%.*})"
     docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/emulatedMobile.json --multi --spa $script
@@ -45,7 +45,7 @@ for script in $SERVER/emulatedMobile/scripts/*.js ; do
 done
 
 # We run WebPageReplay just to verify that it works
-for url in $SERVER/replay/urls/*.txt ; do
+for url in tests/$TEST/replay/urls/*.txt ; do
     [ -e "$url" ] || continue
     NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${url%%.*})"
     docker run $DOCKER_SETUP -e REPLAY=true -e LATENCY=100 $DOCKER_CONTAINER $NAMESPACE $CONFIG/replay.json $url
@@ -53,7 +53,7 @@ for url in $SERVER/replay/urls/*.txt ; do
 done
 
 # We run WebPageTest runs to verify the WebPageTest functionality and dashboards
-for url in $SERVER/webpagetest/desktop/urls/*.txt ; do
+for url in tests/$TEST/webpagetest/desktop/urls/*.txt ; do
     [ -e "$url" ] || continue
     NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${url%%.*})"
     docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/webpagetest.json $url
@@ -61,7 +61,7 @@ for url in $SERVER/webpagetest/desktop/urls/*.txt ; do
 done
 
 # You can also test using WebPageTest scripts
-for script in $SERVER/webpagetest/desktop/scripts/* ; do
+for script in tests/$TEST/webpagetest/desktop/scripts/* ; do
     [ -e "$script" ] || continue
     NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${script%%.*})"
     docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/webpagetest.json --plugins.remove browsertime --webpagetest.file $script https://www.example.org/
