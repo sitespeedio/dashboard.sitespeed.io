@@ -2,7 +2,7 @@
 
 # We use the autobuild to always test our new functionality. But YOU should not do that!
 # Instead use the latest tagged version as the next row
-# DOCKER_CONTAINER=sitespeedio/sitespeed.io:9.2.1
+# DOCKER_CONTAINER=sitespeedio/sitespeed.io:10.1.0
 
 DOCKER_CONTAINER=sitespeedio/sitespeed.io-autobuild:latest
 DOCKER_SETUP="--cap-add=NET_ADMIN  --shm-size=2g --rm -v /config:/config -v "$(pwd)":/sitespeed.io -v /etc/localtime:/etc/localtime:ro -e MAX_OLD_SPACE_SIZE=3072 "
@@ -16,8 +16,10 @@ BROWSERS=(chrome firefox)
 for url in tests/$TEST/desktop/urls/*.txt ; do
     [ -e "$url" ] || continue
     for browser in "${BROWSERS[@]}" ; do
+        POTENTIAL_CONFIG="./config/$(basename ${url%%.*}).json"
+        [[ -f "$POTENTIAL_CONFIG" ]] && CONFIG_FILE="$(basename ${url%.*}).json" || CONFIG_FILE="desktopWithExtras.json"
         NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${url%%.*})"
-        docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/desktopWithExtras.json -b $browser $url
+        docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/$CONFIG_FILE -b $browser $url
         control
     done
 done
@@ -25,31 +27,39 @@ done
 for script in tests/$TEST/desktop/scripts/*.js ; do
     [ -e "$script" ] || continue
     for browser in "${BROWSERS[@]}"  ; do
+        POTENTIAL_CONFIG="./config/$(basename ${script%%.*}).json"
+        [[ -f "$POTENTIAL_CONFIG" ]] && CONFIG_FILE="$(basename ${script%.*}).json" || CONFIG_FILE="desktop.json"
         NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${script%%.*})"
-        docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/desktop.json --multi -b $browser --spa $script
+        docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/$CONFIG_FILE --multi -b $browser --spa $script
         control
     done
 done
 
 for url in tests/$TEST/emulatedMobile/urls/*.txt ; do
     [ -e "$url" ] || continue
+    POTENTIAL_CONFIG="./config/$(basename ${url%%.*}).json"
+    [[ -f "$POTENTIAL_CONFIG" ]] && CONFIG_FILE="$(basename ${url%.*}).json" || CONFIG_FILE="emulatedMobile.json"
     NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${url%%.*})"
-    docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/emulatedMobile.json $url
+    docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/$CONFIG_FILE $url
     control
 done
 
 for script in tests/$TEST/emulatedMobile/scripts/*.js ; do
     [ -e "$script" ] || continue
+    POTENTIAL_CONFIG="./config/$(basename ${script%%.*}).json"
+    [[ -f "$POTENTIAL_CONFIG" ]] && CONFIG_FILE="$(basename ${script%.*}).json" || CONFIG_FILE="emulatedMobile.json"
     NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${script%%.*})"
-    docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/emulatedMobile.json --multi --spa $script
+    docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/$CONFIG_FILE --multi --spa $script
     control
 done
 
 # We run WebPageReplay just to verify that it works
 for url in tests/$TEST/replay/urls/*.txt ; do
     [ -e "$url" ] || continue
+    POTENTIAL_CONFIG="./config/$(basename ${url%%.*}).json"
+    [[ -f "$POTENTIAL_CONFIG" ]] && CONFIG_FILE="$(basename ${url%.*}).json" || CONFIG_FILE="replay.json"
     NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${url%%.*})"
-    docker run $DOCKER_SETUP -e REPLAY=true -e LATENCY=100 $DOCKER_CONTAINER $NAMESPACE $CONFIG/replay.json $url
+    docker run $DOCKER_SETUP -e REPLAY=true -e LATENCY=100 $DOCKER_CONTAINER $NAMESPACE $CONFIG/$CONFIG_FILE $url
     control
 done
 
