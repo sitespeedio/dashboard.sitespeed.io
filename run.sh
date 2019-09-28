@@ -14,23 +14,21 @@ BROWSERS=(chrome firefox)
 # removing things you don't need!
 
 for url in tests/$TEST/desktop/urls/*.txt ; do
-  [ -e "$url" ] || continue
-  for browser in "${BROWSERS[@]}"
-    do
-      NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${url%%.*})"
-      docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/desktopWithExtras.json -b $browser $url
-      control
+    [ -e "$url" ] || continue
+    for browser in "${BROWSERS[@]}" ; do
+        NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${url%%.*})"
+        docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/desktopWithExtras.json -b $browser $url
+        control
     done
 done
 
 for script in tests/$TEST/desktop/scripts/*.js ; do
     [ -e "$script" ] || continue
-    for browser in "${BROWSERS[@]}"
-        do
-            NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${script%%.*})"
-            docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/desktop.json --multi -b $browser --spa $script
-            control
-        done
+    for browser in "${BROWSERS[@]}"  ; do
+        NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${script%%.*})"
+        docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/desktop.json --multi -b $browser --spa $script
+        control
+    done
 done
 
 for url in tests/$TEST/emulatedMobile/urls/*.txt ; do
