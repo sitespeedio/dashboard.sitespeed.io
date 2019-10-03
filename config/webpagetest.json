@@ -20,6 +20,9 @@
   "html": {
     "fetchHARFiles": true
   },
+  "axe": {
+    "enable": true
+  },
   "screenshot": {
     "type": "jpg"
   }
