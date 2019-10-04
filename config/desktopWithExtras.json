@@ -22,7 +22,8 @@
   },
   "html": {
     "fetchHARFiles": true,
-    "showScript": true
+    "showScript": true,
+    "compareURL": "https://compare.sitespeed.io/"
   },
   "screenshot": {
     "type": "jpg"
