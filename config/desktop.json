@@ -15,7 +15,8 @@
       "enableTraceScreenshots": true
     },
     "firefox": {
-      "windowRecorder": true
+      "windowRecorder": true,
+      "includeResponseBodies": "all"
     }
   },
   "cpu": true,
