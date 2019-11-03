@@ -15,6 +15,9 @@
     "collectConsoleLog": true,
     "includeResponseBodies": "html"
   },
+  "firefox": {
+    "includeResponseBodies": "html"
+  },
   "cpu": true,
   "gzipHAR": true,
   "html": {
