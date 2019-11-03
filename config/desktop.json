@@ -13,6 +13,9 @@
     "chrome": {
       "collectConsoleLog": true,
       "enableTraceScreenshots": true
+    },
+    "firefox": {
+      "windowRecorder": true
     }
   },
   "cpu": true,
