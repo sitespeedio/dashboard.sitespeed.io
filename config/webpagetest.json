@@ -6,7 +6,7 @@
       "profile": "cable"
     },
     "visualElements": true,
-    "iterations": 3,
+    "iterations": 1,
     "browser": "chrome",
     "video": true,
     "visualMetric": true
