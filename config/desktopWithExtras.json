@@ -2,5 +2,8 @@
   "extends": "./config/desktop.json",
   "axe": {
     "enable": true
+  },
+  "browsertime": {
+    "iterations": 1
   }
 }
