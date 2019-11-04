@@ -1,5 +1,5 @@
 {
-  "extends": "./desktop.json",
+  "extends": "desktop.json",
   "axe": {
     "enable": true
   }
