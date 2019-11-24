@@ -4,7 +4,7 @@
 
 This is a working example of how you can use sitespeed.io to monitor the performance of your web site. The code run on an instance on Digital Ocean and send the metrics to [dashboard.sitespeed.io](https://dashboard.sitespeed.io) (that is setup using our [docker-compose file](https://github.com/sitespeedio/sitespeed.io/blob/master/docker/docker-compose.yml) and configured for production usage).
 
-You should use this repository as an example of what you can setup yourself. The idea is to make it easy to setup, easy to add new URLs to test and easy to add a new user journey. You start the a script ([**loop.sh**](https://github.com/sitespeedio/dashboard.sitespeed.io/blob/master/loop.sh)) on your server that runs forever but for each iteration, it runs git pull and update the scripts so that if you add new URLs to test, they are automatically picked up. 
+You should use this repository as an example of what you can setup yourself. The idea is to make it easy to setup, easy to add new URLs to test and easy to add a new user journey. You start the a script ([**loop.sh**](https://github.com/sitespeedio/dashboard.sitespeed.io/blob/master/loop.sh)) on your server that runs forever but for each iteration, it runs git pull and update the scripts so that if you add new URLs to test, they are automatically picked up.
 
 You can check out the [full documentation at our documentation site](https://www.sitespeed.io/documentation/sitespeed.io/continuously-run-your-tests/).
 
@@ -50,7 +50,7 @@ The structure looks like this:
                     └── news.txt
 </pre>
 
-The [**loop.sh**](https://github.com/sitespeedio/dashboard.sitespeed.io/blob/master/loop.sh) is the start point. Run it and feed it with the folder name of the server (in our case we only run the tests on server names *nyc3-1*). That script will git pull the rep for every iteration and run the script [**run.sh**](https://github.com/sitespeedio/dashboard.sitespeed.io/blob/master/run.sh). 
+The [**loop.sh**](https://github.com/sitespeedio/dashboard.sitespeed.io/blob/master/loop.sh) is the start point. Run it and feed it with the folder name of the server (in our case we only run the tests on server names *nyc3-1*). That script will git pull the repo for every iteration and run the script [**run.sh**](https://github.com/sitespeedio/dashboard.sitespeed.io/blob/master/run.sh).
 
 Then [**run.sh**](https://github.com/sitespeedio/dashboard.sitespeed.io/blob/master/run.sh) will use the right configuration in [**/config/**](https://github.com/sitespeedio/dashboard.sitespeed.io/tree/master/config) and run the URLs/scripts that are configured. Our configuration files extends configuration files that only exits on the server where we hold secret information like username and passwords. You don't need set it up that way, if you use a private git repo.
 
@@ -58,7 +58,7 @@ Then [**run.sh**](https://github.com/sitespeedio/dashboard.sitespeed.io/blob/mas
 Run your tests on a Linux machine. You will need Docker and Git. You can follow [Dockers official documentation](https://docs.docker.com/install/linux/docker-ce/ubuntu/) or follow our instructions:
 
 ```bash
-# Update 
+# Update
 sudo apt-get update
 sudo apt-get install \
     apt-transport-https \
@@ -68,7 +68,7 @@ sudo apt-get install \
     software-properties-common -y
 
 ## Add official key
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -    
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
 ## Add repo
 sudo add-apt-repository \
@@ -98,7 +98,7 @@ On our server we clone this repo but you should clone your own :)
 git clone https://github.com/sitespeedio/dashboard.sitespeed.io.git
 ```
 
-On our server we have two configuration files that only exits on that server, that's where we have the secrets. They look like this: 
+On our server we have two configuration files that only exits on that server, that's where we have the secrets. They look like this:
 
 **/conf/secrets.json**
 ```json
