@@ -16,8 +16,12 @@
     "includeResponseBodies": "html"
   },
   "firefox": {
-    "includeResponseBodies": "html"
+    "includeResponseBodies": "html",
+    "disableBrowsertimeExtension": true
   },
+  "pageLoadStrategy": "none",
+  "pageCompleteCheckStartWait": 5000,
+  "pageCompleteCheckPollTimeout": 1000,
   "cpu": true,
   "gzipHAR": true,
   "html": {
