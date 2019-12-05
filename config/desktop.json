@@ -15,7 +15,8 @@
       "enableTraceScreenshots": true
     },
     "firefox": {
-      "includeResponseBodies": "all"
+      "includeResponseBodies": "all",
+      "disableBrowsertimeExtension": true
     },
     "pageLoadStrategy": "none",
     "pageCompleteCheckStartWait": 5000,
