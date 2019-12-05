@@ -16,7 +16,10 @@
     },
     "firefox": {
       "includeResponseBodies": "all"
-    }
+    },
+    "pageLoadStrategy": "none",
+    "pageCompleteCheckStartWait": 5000,
+    "pageCompleteCheckPollTimeout": 1000
   },
   "cpu": true,
   "gzipHAR": true,
