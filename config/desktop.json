@@ -16,7 +16,8 @@
     },
     "firefox": {
       "includeResponseBodies": "all",
-      "disableBrowsertimeExtension": true
+      "disableBrowsertimeExtension": true,
+      "mozillaProPreferences": true
     },
     "pageLoadStrategy": "none",
     "pageCompleteCheckStartWait": 5000,
