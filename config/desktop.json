@@ -17,7 +17,6 @@
     "firefox": {
       "includeResponseBodies": "all",
       "disableBrowsertimeExtension": true,
-      "mozillaProPreferences": true,
       "windowRecorder": true
     },
     "pageLoadStrategy": "none",
