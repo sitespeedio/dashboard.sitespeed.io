@@ -17,7 +17,8 @@
     "firefox": {
       "includeResponseBodies": "all",
       "disableBrowsertimeExtension": true,
-      "windowRecorder": true
+      "windowRecorder": true,
+      "geckoProfiler": true
     },
     "pageLoadStrategy": "none",
     "pageCompleteCheckStartWait": 5000,
