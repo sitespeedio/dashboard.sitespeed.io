@@ -8,3 +8,5 @@ https://www.1177.se
 https://www.riksdagen.se
 https://www.stockholm.se
 https://goteborg.se/
+https://www.folkhalsomyndigheten.se
+https://www.msb.se
