@@ -9,4 +9,6 @@ https://www.riksdagen.se
 https://www.stockholm.se
 https://goteborg.se/
 https://www.folkhalsomyndigheten.se
+https://www.folkhalsomyndigheten.se/smittskydd-beredskap/utbrott/aktuella-utbrott/covid-19/
 https://www.msb.se
+https://www.msb.se/sv/aktuellt/pagaende-handelser-och-insatser/msbs-arbete-med-anledning-av-coronaviruset/
