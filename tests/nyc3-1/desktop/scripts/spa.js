@@ -7,7 +7,7 @@ module.exports = async function(context, commands) {
     'https://dashboard.sitespeed.io/d/000000059/page-timing-metrics?orgId=1',
     'pageTimingMetricsDefault'
   );
-  await commands.click.byClassName('btn navbar-button navbar-button--zoom');
+  await commands.click.byClassName('btn navbar-button navbar-button--tight');
   await commands.wait.byTime(1000);
   await commands.measure.start('pageTimingMetrics30Days');
   await commands.click.byXpathAndWait(
