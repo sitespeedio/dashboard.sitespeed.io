@@ -1,4 +1,5 @@
 #!/bin/bash
+set -eu
 
 # We use the autobuild to always test our new functionality. But YOU should not do that!
 # Instead use the latest tagged version as the next row
