@@ -1,0 +1,6 @@
+{
+  "extends": "/config/crux.json",
+  "browsertime": {
+    "iterations": 1
+  }
+}
