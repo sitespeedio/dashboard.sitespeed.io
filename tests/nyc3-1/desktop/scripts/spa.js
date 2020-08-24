@@ -11,7 +11,7 @@ module.exports = async function(context, commands) {
   await commands.wait.byTime(1000);
   await commands.measure.start('pageTimingMetrics30Days');
   await commands.click.byXpathAndWait(
-    '/html/body/grafana-app/div/div/react-container/div/div[1]/div[6]/div/div[1]/div/div/div/div[2]/div[1]/div[2]/div[11]/span'
+    '/html/body/grafana-app/div/div/react-container/div/div[1]/div[6]/div/div[1]/div/div/div/div[1]/div[2]/div[1]/div[2]/div[11]/span'
   );
   await commands.measure.stop();
 };
