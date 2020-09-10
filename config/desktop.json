@@ -18,7 +18,7 @@
       "includeResponseBodies": "all",
       "disableBrowsertimeExtension": true,
       "windowRecorder": true,
-      "geckoProfiler": false
+      "geckoProfiler": true
     },
     "pageLoadStrategy": "none",
     "pageCompleteCheckStartWait": 5000,
