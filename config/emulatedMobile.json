@@ -20,6 +20,7 @@
   },
   "experimentalNewSetup": true,
   "slug": "iphone",
+  "utc": true,
   "cpu": true,
   "gzipHAR": true,
   "html": {
