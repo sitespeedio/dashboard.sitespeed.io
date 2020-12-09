@@ -18,6 +18,8 @@
       "enableTraceScreenshots": true
     }
   },
+  "experimentalNewSetup": true,
+  "slug": "iphone",
   "cpu": true,
   "gzipHAR": true,
   "html": {
