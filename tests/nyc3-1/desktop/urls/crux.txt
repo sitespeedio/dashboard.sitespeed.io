@@ -1,2 +1,5 @@
 https://www.sitespeed.io/
 https://www.google.com/
+https://speedcurve.com/
+https://www.webpagetest.org/
+https://www.calibreapp.com/
