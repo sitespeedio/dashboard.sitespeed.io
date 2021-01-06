@@ -8,5 +8,8 @@
   },
   "sustainable": {
     "enable": true
+  },
+  "graphite": {
+    "annotationRetentionMinutes": 60
   }
 }
