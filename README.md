@@ -8,42 +8,44 @@ You should use this repository as an example of what you can setup yourself. The
 
 You can check out the [full documentation at our documentation site](https://www.sitespeed.io/documentation/sitespeed.io/continuously-run-your-tests/).
 
-Do you want to add a new URL to test on desktop? Navigate to [**desktop/urls**](https://github.com/sitespeedio/dashboard.sitespeed.io/tree/main/tests/nyc3-1/desktop/urls) and create your new file there. Want to add a user journey? Add the script in [**desktop/scripts**](https://github.com/sitespeedio/dashboard.sitespeed.io/tree/main/tests/nyc3-1/desktop/scripts).
+Do you want to add a new URL to test on desktop? Navigate to [**desktop**](https://github.com/sitespeedio/dashboard.sitespeed.io/tree/main/tests/nyc3-1/desktop/urls) and create your new file there. Want to add a user journey? Add the script in [**desktop**](https://github.com/sitespeedio/dashboard.sitespeed.io/tree/main/tests/nyc3-1/desktop/scripts).
 
 Our example run tests for [desktop](https://github.com/sitespeedio/dashboard.sitespeed.io/tree/main/tests/nyc3-1/desktop), [emulated mobile](https://github.com/sitespeedio/dashboard.sitespeed.io/tree/main/tests/nyc3-1/emulatedMobile) (both URLs and scripts), testing using WebPageReplay ([replay](https://github.com/sitespeedio/dashboard.sitespeed.io/tree/main/tests/nyc3-1/replay/urls)). But you probably don't need all that so you can remove the code in the [**run.sh**](https://github.com/sitespeedio/dashboard.sitespeed.io/blob/main/run.sh) script.
 
 The structure looks like this:
 
 <pre>
- .
+.
+├── README.md
 ├── config
+│   ├── README.md
+│   ├── alexaDesktop.json
+│   ├── alexaMobile.json
+│   ├── crux.json
 │   ├── desktop.json
-│   ├── desktopWithExtras.json
+│   ├── desktopMulti.json
 │   ├── emulatedMobile.json
-│   └── replay.json
-│   
+│   ├── emulatedMobileMulti.json
+│   ├── loginWikipedia.json
+│   ├── news.json
+│   ├── replay.json
+│   └── spa.json
 ├── loop.sh
 ├── run.sh
 └── tests
-    └── nyc3-1
-        ├── desktop
-        │   ├── scripts
-        │   │   ├── desktopMulti.js
-        │   │   ├── loginWikipedia.js
-        │   │   └── spa.js
-        │   └── urls
-        │       ├── alexaDesktop.txt
-        │       ├── desktop.txt
-        │       └── publicSectorDesktop.txt
-        ├── emulatedMobile
-        │   ├── scripts
-        │   │   └── emulatedMobileMulti.js
-        │   └── urls
-        │       ├── alexaMobile.txt
-        │       └── emulatedMobile.txt
-        └── replay
-           └── urls
-               └── replay.txt
+    ├── desktop
+    │   ├── alexaDesktop.txt
+    │   ├── crux.txt
+    │   ├── desktop.txt
+    │   ├── desktopMulti.js
+    │   ├── loginWikipedia.js
+    │   ├── news.txt
+    │   ├── replay.replay
+    │   └── spa.js
+    └── emulatedMobile
+        ├── alexaMobile.txt
+        ├── emulatedMobile.txt
+        └── emulatedMobileMulti.js
         
 </pre>
 

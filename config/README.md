@@ -23,23 +23,6 @@ Here are the configuration files that we use. You can see that they all extends 
 }
 ```
 
-**/conf/webpagetest-secrets.json**
-```json
-{
-  "extends": "/config/secrets.json",
-  "influxdb": {
-    "host": "OUR_HOST",
-    "database": "DATABASE",
-    "username": "USER",
-    "password": "PASSWORD"
-  },
-  "webpagetest": {
-    "timeline": true,
-    "key": "WPT_KEY"
-  }
-}
-```
-
 You can follow the same pattern or have another setup if your repo is private.
 
 [Read the documentation on how to configure sitespeed.io](https://www.sitespeed.io/documentation/sitespeed.io/configuration/).

@@ -19,10 +19,7 @@
       "disableBrowsertimeExtension": true,
       "windowRecorder": true,
       "geckoProfiler": true
-    },
-    "pageLoadStrategy": "none",
-    "pageCompleteCheckStartWait": 5000,
-    "pageCompleteCheckPollTimeout": 1000
+    }
   },
   "cpu": true,
   "gzipHAR": true,
@@ -33,5 +30,8 @@
   },
   "screenshot": {
     "type": "jpg"
+  },
+  "graphite": {
+    "namespace": "sitespeed_io.desktop"
   }
 }

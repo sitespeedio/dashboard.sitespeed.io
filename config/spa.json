@@ -1,0 +1,8 @@
+{
+  "extends": "./config/desktop.json",
+  "multi": true,
+  "spa": true,
+  "graphite": {
+    "namespace": "sitespeed_io.spa"
+  }
+}
