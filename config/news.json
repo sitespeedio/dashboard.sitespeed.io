@@ -11,6 +11,7 @@
   },
   "graphite": {
     "annotationRetentionMinutes": 60,
-    "namespace": "sitespeed_io.news"
+    "namespace": "sitespeed_io.news",
+    "skipSummary": true
   }
 }
