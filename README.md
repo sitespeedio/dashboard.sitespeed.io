@@ -30,10 +30,7 @@ The structure looks like this:
 │   ├── news.json
 │   ├── replay.json
 │   └── spa.json
-├── installation.md
 ├── loop.sh
-├── npm-shrinkwrap.json
-├── package.json
 ├── run.sh
 └── tests
     ├── desktop
