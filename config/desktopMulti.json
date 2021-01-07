@@ -1,0 +1,7 @@
+{
+  "extends": "./config/desktop.json",
+  "multi": true,
+  "graphite": {
+    "namespace": "sitespeed_io.desktopMulti"
+  }
+}

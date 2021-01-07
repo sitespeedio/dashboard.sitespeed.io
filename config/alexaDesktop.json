@@ -1,0 +1,16 @@
+{
+  "extends": "./config/desktop.json",
+  "axe": {
+    "enable": true
+  },
+  "browsertime": {
+    "iterations": 3
+  },
+  "sustainable": {
+    "enable": true
+  },
+  "graphite": {
+    "annotationRetentionMinutes": 60,
+    "namespace": "sitespeed_io.alexaDesktop"
+  }
+}

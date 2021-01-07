@@ -30,8 +30,5 @@
   },
   "screenshot": {
     "type": "jpg"
-  },
-  "graphite": {
-    "namespace": "sitespeed_io.desktop"
   }
 }

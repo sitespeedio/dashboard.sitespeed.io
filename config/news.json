@@ -4,12 +4,13 @@
     "enable": true
   },
   "browsertime": {
-    "iterations": 1
+    "iterations": 3
   },
   "sustainable": {
     "enable": true
   },
   "graphite": {
-    "annotationRetentionMinutes": 60
+    "annotationRetentionMinutes": 60,
+    "namespace": "sitespeed_io.news"
   }
 }

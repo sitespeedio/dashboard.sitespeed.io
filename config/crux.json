@@ -2,5 +2,8 @@
   "extends": "/config/crux.json",
   "plugins": {
     "remove": "browsertime"
+  },
+  "graphite": {
+    "namespace": "sitespeed_io.crux"
   }
 }

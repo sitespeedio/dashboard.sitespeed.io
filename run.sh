@@ -2,64 +2,46 @@
 
 # We use the autobuild to always test our new functionality. But YOU should not do that!
 # Instead use the latest tagged version as the next row
-# DOCKER_CONTAINER=sitespeedio/sitespeed.io:10.1.0
+# DOCKER_CONTAINER=sitespeedio/sitespeed.io:16.2.0
 
 DOCKER_CONTAINER=sitespeedio/sitespeed.io-autobuild:main
 DOCKER_SETUP="--cap-add=NET_ADMIN  --shm-size=2g --rm -v /config:/config -v "$(pwd)":/sitespeed.io -v /etc/localtime:/etc/localtime:ro -e MAX_OLD_SPACE_SIZE=3072 "
 CONFIG="--config /sitespeed.io/config"
-BROWSERS=(chrome firefox)
+DESKTOP_BROWSERS=(chrome firefox edge)
+EMULATED_MOBILE_BROWSERS=(chrome)
 
-# We loop through all directories we have
-# We run many tests to verify the functionality of sitespeed.io and you can simplify this by
-# removing things you don't need!
+# We loop through the desktop directory
 
-for url in tests/$TEST/desktop/urls/*.txt ; do
-    [ -e "$url" ] || continue
-    for browser in "${BROWSERS[@]}" ; do
-        POTENTIAL_CONFIG="./config/$(basename ${url%%.*}).json"
-        [[ -f "$POTENTIAL_CONFIG" ]] && CONFIG_FILE="$(basename ${url%.*}).json" || CONFIG_FILE="desktopWithExtras.json"
-        NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${url%%.*})"
-        docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/$CONFIG_FILE -b $browser $url
+for file in tests/desktop/*.{txt,js} ; do
+    for browser in "${DESKTOP_BROWSERS[@]}" ; do
+        FILENAME=$(basename -- "$file")
+        FILENAME_WITHOUT_EXTENSION="${FILENAME%.*}"
+        CONFIG_FILE="./config/$FILENAME_WITHOUT_EXTENSION.json"
+        [[ -f "$CONFIG_FILE" ]] && echo "Using config file $CONFIG_FILE" || echo "Missing config file $CONFIG_FILE"
+        docker run $DOCKER_SETUP $DOCKER_CONTAINER $CONFIG/$CONFIG_FILE -b $browser $file
         control
     done
 done
 
-for script in tests/$TEST/desktop/scripts/*.js ; do
-    [ -e "$script" ] || continue
-    for browser in "${BROWSERS[@]}"  ; do
-        POTENTIAL_CONFIG="./config/$(basename ${script%%.*}).json"
-        [[ -f "$POTENTIAL_CONFIG" ]] && CONFIG_FILE="$(basename ${script%.*}).json" || CONFIG_FILE="desktop.json"
-        NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${script%%.*})"
-        docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/$CONFIG_FILE --multi -b $browser --spa $script
+for file in tests/emulatedMobile/*.{txt,js} ; do
+    for browser in "${EMULATED_MOBILE_BROWSERS[@]}" ; do
+        FILENAME=$(basename -- "$file")
+        FILENAME_WITHOUT_EXTENSION="${FILENAME%.*}"
+        CONFIG_FILE="./config/$FILENAME_WITHOUT_EXTENSION.json"
+        [[ -f "$CONFIG_FILE" ]] && echo "Using config file $CONFIG_FILE" || echo "Missing config file $CONFIG_FILE"
+        docker run $DOCKER_SETUP $DOCKER_CONTAINER $CONFIG/$CONFIG_FILE -b $browser $file
         control
     done
 done
 
-for url in tests/$TEST/emulatedMobile/urls/*.txt ; do
-    [ -e "$url" ] || continue
-    POTENTIAL_CONFIG="./config/$(basename ${url%%.*}).json"
-    [[ -f "$POTENTIAL_CONFIG" ]] && CONFIG_FILE="$(basename ${url%.*}).json" || CONFIG_FILE="emulatedMobile.json"
-    NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${url%%.*})"
-    docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/$CONFIG_FILE $url
-    control
-done
-
-for script in tests/$TEST/emulatedMobile/scripts/*.js ; do
-    [ -e "$script" ] || continue
-    POTENTIAL_CONFIG="./config/$(basename ${script%%.*}).json"
-    [[ -f "$POTENTIAL_CONFIG" ]] && CONFIG_FILE="$(basename ${script%.*}).json" || CONFIG_FILE="emulatedMobile.json"
-    NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${script%%.*})"
-    docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/$CONFIG_FILE --multi --spa $script
-    control
-done
 
 # We run WebPageReplay just to verify that it works
-for url in tests/$TEST/replay/urls/*.txt ; do
-    [ -e "$url" ] || continue
-    POTENTIAL_CONFIG="./config/$(basename ${url%%.*}).json"
-    [[ -f "$POTENTIAL_CONFIG" ]] && CONFIG_FILE="$(basename ${url%.*}).json" || CONFIG_FILE="replay.json"
-    NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${url%%.*})"
-    docker run $DOCKER_SETUP -e REPLAY=true -e LATENCY=100 $DOCKER_CONTAINER $NAMESPACE $CONFIG/$CONFIG_FILE $url
+for file in tests/desktop/*.replay ; do
+    FILENAME=$(basename -- "$file")
+    FILENAME_WITHOUT_EXTENSION="${FILENAME%.*}"
+    CONFIG_FILE="./config/$FILENAME_WITHOUT_EXTENSION.json"
+    [[ -f "$CONFIG_FILE" ]] && echo "Using config file $CONFIG_FILE" || echo "Missing config file $CONFIG_FILE"
+    docker run $DOCKER_SETUP -e REPLAY=true -e LATENCY=100 $DOCKER_CONTAINER $NAMESPACE $CONFIG/$CONFIG_FILE $file
     control
 done
 
