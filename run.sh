@@ -16,9 +16,9 @@ for file in tests/desktop/*.{txt,js} ; do
     for browser in "${DESKTOP_BROWSERS[@]}" ; do
         FILENAME=$(basename -- "$file")
         FILENAME_WITHOUT_EXTENSION="${FILENAME%.*}"
-        CONFIG_FILE="./config/$FILENAME_WITHOUT_EXTENSION.json"
+        CONFIG_FILE="config/$FILENAME_WITHOUT_EXTENSION.json"
         [[ -f "$CONFIG_FILE" ]] && echo "Using config file $CONFIG_FILE" || echo "Missing config file $CONFIG_FILE"
-        docker run $DOCKER_SETUP $DOCKER_CONTAINER $CONFIG/$CONFIG_FILE -b $browser $file
+        docker run $DOCKER_SETUP $DOCKER_CONTAINER $CONFIG_FILE -b $browser $file
         control
     done
 done
@@ -27,9 +27,9 @@ for file in tests/emulatedMobile/*.{txt,js} ; do
     for browser in "${EMULATED_MOBILE_BROWSERS[@]}" ; do
         FILENAME=$(basename -- "$file")
         FILENAME_WITHOUT_EXTENSION="${FILENAME%.*}"
-        CONFIG_FILE="./config/$FILENAME_WITHOUT_EXTENSION.json"
+        CONFIG_FILE="config/$FILENAME_WITHOUT_EXTENSION.json"
         [[ -f "$CONFIG_FILE" ]] && echo "Using config file $CONFIG_FILE" || echo "Missing config file $CONFIG_FILE"
-        docker run $DOCKER_SETUP $DOCKER_CONTAINER $CONFIG/$CONFIG_FILE -b $browser $file
+        docker run $DOCKER_SETUP $DOCKER_CONTAINER $CONFIG_FILE -b $browser $file
         control
     done
 done
@@ -39,9 +39,9 @@ done
 for file in tests/desktop/*.replay ; do
     FILENAME=$(basename -- "$file")
     FILENAME_WITHOUT_EXTENSION="${FILENAME%.*}"
-    CONFIG_FILE="./config/$FILENAME_WITHOUT_EXTENSION.json"
+    CONFIG_FILE="config/$FILENAME_WITHOUT_EXTENSION.json"
     [[ -f "$CONFIG_FILE" ]] && echo "Using config file $CONFIG_FILE" || echo "Missing config file $CONFIG_FILE"
-    docker run $DOCKER_SETUP -e REPLAY=true -e LATENCY=100 $DOCKER_CONTAINER $NAMESPACE $CONFIG/$CONFIG_FILE $file
+    docker run $DOCKER_SETUP -e REPLAY=true -e LATENCY=100 $DOCKER_CONTAINER $NAMESPACE $CONFIG_FILE $file
     control
 done
 
