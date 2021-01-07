@@ -5,3 +5,7 @@ https://www.nytimes.com/
 https://edition.cnn.com/us
 https://www.theguardian.com/international
 https://www.lemonde.fr
+https://www.spiegel.de
+https://timesofindia.indiatimes.com
+https://www.thestar.com/
+http://global.chinadaily.com.cn
