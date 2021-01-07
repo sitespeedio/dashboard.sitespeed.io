@@ -10,7 +10,7 @@ You can check out the [full documentation at our documentation site](https://www
 
 Do you want to add a new URL to test on desktop? Navigate to [**desktop/urls**](https://github.com/sitespeedio/dashboard.sitespeed.io/tree/main/tests/nyc3-1/desktop/urls) and create your new file there. Want to add a user journey? Add the script in [**desktop/scripts**](https://github.com/sitespeedio/dashboard.sitespeed.io/tree/main/tests/nyc3-1/desktop/scripts).
 
-Our example run tests for [desktop](https://github.com/sitespeedio/dashboard.sitespeed.io/tree/main/tests/nyc3-1/desktop), [emulated mobile](https://github.com/sitespeedio/dashboard.sitespeed.io/tree/main/tests/nyc3-1/emulatedMobile) (both URLs and scripts), testing using WebPageReplay ([replay](https://github.com/sitespeedio/dashboard.sitespeed.io/tree/main/tests/nyc3-1/replay/urls)) and WebPageTest ([webpagetest](https://github.com/sitespeedio/dashboard.sitespeed.io/tree/main/tests/nyc3-1/webpagetest/desktop/urls)). But you probably don't need all that so you can remove the code in the [**run.sh**](https://github.com/sitespeedio/dashboard.sitespeed.io/blob/main/run.sh) script.
+Our example run tests for [desktop](https://github.com/sitespeedio/dashboard.sitespeed.io/tree/main/tests/nyc3-1/desktop), [emulated mobile](https://github.com/sitespeedio/dashboard.sitespeed.io/tree/main/tests/nyc3-1/emulatedMobile) (both URLs and scripts), testing using WebPageReplay ([replay](https://github.com/sitespeedio/dashboard.sitespeed.io/tree/main/tests/nyc3-1/replay/urls)). But you probably don't need all that so you can remove the code in the [**run.sh**](https://github.com/sitespeedio/dashboard.sitespeed.io/blob/main/run.sh) script.
 
 The structure looks like this:
 
@@ -20,8 +20,8 @@ The structure looks like this:
 │   ├── desktop.json
 │   ├── desktopWithExtras.json
 │   ├── emulatedMobile.json
-│   ├── replay.json
-│   └── webpagetest.json
+│   └── replay.json
+│   
 ├── loop.sh
 ├── run.sh
 └── tests
@@ -41,13 +41,10 @@ The structure looks like this:
         │   └── urls
         │       ├── alexaMobile.txt
         │       └── emulatedMobile.txt
-        ├── replay
-        │   └── urls
-        │       └── replay.txt
-        └── webpagetest
-            └── desktop
-                └── urls
-                    └── news.txt
+        └── replay
+           └── urls
+               └── replay.txt
+        
 </pre>
 
 The [**loop.sh**](https://github.com/sitespeedio/dashboard.sitespeed.io/blob/main/loop.sh) is the start point. Run it and feed it with the folder name of the server (in our case we only run the tests on server names *nyc3-1*). That script will git pull the repo for every iteration and run the script [**run.sh**](https://github.com/sitespeedio/dashboard.sitespeed.io/blob/main/run.sh).
@@ -125,23 +122,6 @@ On our server we have two configuration files that only exits on that server, th
     }
   }
 
-}
-```
-
-**/conf/webpagetest-secrets.json**
-```json
-{
-  "extends": "/config/secrets.json",
-  "influxdb": {
-    "host": "OUR_HOST",
-    "database": "DATABASE",
-    "username": "USER",
-    "password": "PASSWORD"
-  },
-  "webpagetest": {
-    "timeline": true,
-    "key": "WPT_KEY"
-  }
 }
 ```
 

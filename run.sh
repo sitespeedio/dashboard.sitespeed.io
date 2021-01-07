@@ -63,22 +63,6 @@ for url in tests/$TEST/replay/urls/*.txt ; do
     control
 done
 
-# We run WebPageTest runs to verify the WebPageTest functionality and dashboards
-for url in tests/$TEST/webpagetest/desktop/urls/*.txt ; do
-    [ -e "$url" ] || continue
-    NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${url%%.*})"
-    docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/webpagetest.json $url
-    control
-done
-
-# You can also test using WebPageTest scripts
-for script in tests/$TEST/webpagetest/desktop/scripts/* ; do
-    [ -e "$script" ] || continue
-    NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${script%%.*})"
-    docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/webpagetest.json --plugins.remove browsertime --webpagetest.file $script https://www.example.org/
-    control
-done
-
 # Remove the current container so we fetch the latest autobuild the next time
 # If you run a stable version (as YOU should), you don't need to remove the container,
 # instead make sure you remove all volumes (of data)
