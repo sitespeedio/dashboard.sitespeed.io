@@ -6,7 +6,6 @@
 
 DOCKER_CONTAINER=sitespeedio/sitespeed.io-autobuild:main
 DOCKER_SETUP="--cap-add=NET_ADMIN  --shm-size=2g --rm -v /config:/config -v "$(pwd)":/sitespeed.io -v /etc/localtime:/etc/localtime:ro -e MAX_OLD_SPACE_SIZE=3072 "
-CONFIG="--config /sitespeed.io/config"
 DESKTOP_BROWSERS=(chrome firefox edge)
 EMULATED_MOBILE_BROWSERS=(chrome)
 
@@ -18,7 +17,7 @@ for file in tests/desktop/*.{txt,js} ; do
         FILENAME_WITHOUT_EXTENSION="${FILENAME%.*}"
         CONFIG_FILE="config/$FILENAME_WITHOUT_EXTENSION.json"
         [[ -f "$CONFIG_FILE" ]] && echo "Using config file $CONFIG_FILE" || echo "Missing config file $CONFIG_FILE"
-        docker run $DOCKER_SETUP $DOCKER_CONTAINER $CONFIG_FILE -b $browser $file
+        docker run $DOCKER_SETUP $DOCKER_CONTAINER --config $CONFIG_FILE -b $browser $file
         control
     done
 done
@@ -29,7 +28,7 @@ for file in tests/emulatedMobile/*.{txt,js} ; do
         FILENAME_WITHOUT_EXTENSION="${FILENAME%.*}"
         CONFIG_FILE="config/$FILENAME_WITHOUT_EXTENSION.json"
         [[ -f "$CONFIG_FILE" ]] && echo "Using config file $CONFIG_FILE" || echo "Missing config file $CONFIG_FILE"
-        docker run $DOCKER_SETUP $DOCKER_CONTAINER $CONFIG_FILE -b $browser $file
+        docker run $DOCKER_SETUP $DOCKER_CONTAINER --config $CONFIG_FILE -b $browser $file
         control
     done
 done
@@ -41,7 +40,7 @@ for file in tests/desktop/*.replay ; do
     FILENAME_WITHOUT_EXTENSION="${FILENAME%.*}"
     CONFIG_FILE="config/$FILENAME_WITHOUT_EXTENSION.json"
     [[ -f "$CONFIG_FILE" ]] && echo "Using config file $CONFIG_FILE" || echo "Missing config file $CONFIG_FILE"
-    docker run $DOCKER_SETUP -e REPLAY=true -e LATENCY=100 $DOCKER_CONTAINER $NAMESPACE $CONFIG_FILE $file
+    docker run $DOCKER_SETUP -e REPLAY=true -e LATENCY=100 $DOCKER_CONTAINER $NAMESPACE --config $CONFIG_FILE $file
     control
 done
 
