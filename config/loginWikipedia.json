@@ -4,6 +4,7 @@
     "iterations": 1
   },
   "slug": "loginWikipedia",
+  "multi": true,
   "graphite": {
     "addSlugToKey": true,
     "namespace": "sitespeed_io.user-journey"
