@@ -4,6 +4,6 @@
     "iterations": 1
   },
   "graphite": {
-    "namespace": "sitespeed_io.loginWikipedia"
+    "namespace": "sitespeed_io.wikipediaLoginUserJourney"
   }
 }
