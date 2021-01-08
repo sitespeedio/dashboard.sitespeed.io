@@ -3,7 +3,9 @@
   "browsertime": {
     "iterations": 1
   },
+  "slug": "loginWikipedia",
   "graphite": {
-    "namespace": "sitespeed_io.wikipediaLoginUserJourney"
+    "addSlugToKey": true,
+    "namespace": "sitespeed_io.user-journey"
   }
 }

@@ -1,7 +1,9 @@
 {
   "extends": "./config/emulatedMobile.json",
   "multi": true,
+  "slug": "wikipedia-rabbit-hole-mobile",
   "graphite": {
-    "namespace": "sitespeed_io.wikipediadMobileUserJourney"
+    "addSlugToKey": true,
+    "namespace": "sitespeed_io.user-journey"
   }
 }
