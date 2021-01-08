@@ -2,6 +2,6 @@
   "extends": "./config/emulatedMobile.json",
   "multi": true,
   "graphite": {
-    "namespace": "sitespeed_io.desktopMulti"
+    "namespace": "sitespeed_io.emulatedMobileMulti"
   }
 }
