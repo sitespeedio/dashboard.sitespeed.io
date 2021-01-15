@@ -9,9 +9,11 @@
   "sustainable": {
     "enable": true
   },
+  "slug": "news",
   "graphite": {
     "annotationRetentionMinutes": 60,
-    "namespace": "sitespeed_io.news",
-    "skipSummary": true
+    "namespace": "sitespeed_io.desktopFirstView",
+    "skipSummary": true,
+    "addSlugToKey": true
   }
 }

@@ -31,7 +31,9 @@
   "screenshot": {
     "type": "jpg"
   },
+  "slug": "bulk",
   "graphite": {
-    "namespace": "sitespeed_io.desktop"
+    "namespace": "sitespeed_io.desktopFirstView",
+    "addSlugToKey": true
   }
 }

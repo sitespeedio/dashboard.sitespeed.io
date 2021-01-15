@@ -9,9 +9,11 @@
   "sustainable": {
     "enable": true
   },
+  "slug": "alexa",
   "graphite": {
     "annotationRetentionMinutes": 60,
-    "namespace": "sitespeed_io.alexaDesktop",
-    "skipSummary": true
+    "namespace": "sitespeed_io.desktopFirstView",
+    "skipSummary": true,
+    "addSlugToKey": true
   }
 }

@@ -2,7 +2,10 @@
   "extends": "./config/desktop.json",
   "multi": true,
   "spa": true,
+  "slug": "spa",
   "graphite": {
-    "namespace": "sitespeed_io.spa"
+    "namespace": "sitespeed_io.desktopUserJourney",
+    "skipSummary": true,
+    "addSlugToKey": true
   }
 }

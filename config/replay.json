@@ -28,5 +28,10 @@
   "screenshot": {
     "type": "jpg"
   },
-  "namespace": "sitespeed_io.webpagereplay"
+  "slug": "webpagereplay",
+  "graphite": {
+    "namespace": "sitespeed_io.desktopFirstView",
+    "skipSummary": true,
+    "addSlugToKey": true
+  }
 }

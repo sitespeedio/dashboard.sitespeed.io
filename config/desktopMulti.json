@@ -1,9 +1,9 @@
 {
   "extends": "./config/desktop.json",
   "multi": true,
-  "slug": "wikipedia-rabbit-hole",
+  "slug": "wikipediaRabbitHole",
   "graphite": {
     "addSlugToKey": true,
-    "namespace": "sitespeed_io.user-journey"
+    "namespace": "sitespeed_io.desktopUserJourney"
   }
 }

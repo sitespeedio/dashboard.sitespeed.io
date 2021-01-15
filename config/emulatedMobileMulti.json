@@ -4,6 +4,6 @@
   "slug": "wikipedia-rabbit-hole-mobile",
   "graphite": {
     "addSlugToKey": true,
-    "namespace": "sitespeed_io.user-journey"
+    "namespace": "sitespeed_io.emulatedMobileUserJourney"
   }
 }
