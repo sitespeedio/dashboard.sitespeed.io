@@ -25,7 +25,7 @@ module.exports = async function(context, commands) {
     await commands.js.run(
       'for (let node of document.body.childNodes) { if (node.style) node.style.display = "none";}'
     );
-    await commands.measure.start('login');
+    await commands.measure.start('LoggedIn');
     // Find the sumbit button and click it and then wait
     // for the pageCompleteCheck to finish
     await commands.click.byIdAndWait('wpLoginAttempt');
