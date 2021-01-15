@@ -11,7 +11,7 @@
   },
   "slug": "alexa",
   "graphite": {
-    "annotationRetentionMinutes": 60,
+    "annotationRetentionMinutes": 10,
     "namespace": "sitespeed_io.emulatedMobileFirstView",
     "skipSummary": true,
     "addSlugToKey": true
