@@ -3,6 +3,9 @@
   "multi": true,
   "spa": true,
   "slug": "spa",
+  "browsertime": {
+    "pageCompleteWaitTime": 10000
+  },
   "graphite": {
     "namespace": "sitespeed_io.desktopUserJourney",
     "skipSummary": true,
