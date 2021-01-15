@@ -1,7 +1,8 @@
 module.exports = async function(context, commands) {
   // We start by navigating to the login page.
-  await commands.navigate(
-    'https://en.wikipedia.org/w/index.php?title=Special:UserLogin&returnto=Main+Page'
+  await commands.measure(
+    'https://en.wikipedia.org/w/index.php?title=Special:UserLogin&returnto=Main+Page',
+    'LoginPage'
   );
 
   // When we fill in a input field/click on a link we wanna
