@@ -34,17 +34,6 @@ for file in tests/emulatedMobile/*.{txt,js} ; do
     done
 done
 
-
-# We run WebPageReplay just to verify that it works
-for file in tests/desktop/*.replay ; do
-    FILENAME=$(basename -- "$file")
-    FILENAME_WITHOUT_EXTENSION="${FILENAME%.*}"
-    CONFIG_FILE="config/$FILENAME_WITHOUT_EXTENSION.json"
-    [[ -f "$CONFIG_FILE" ]] && echo "Using config file $CONFIG_FILE" || echo "Missing config file $CONFIG_FILE"
-    docker run $DOCKER_SETUP -e REPLAY=true -e LATENCY=100 $DOCKER_CONTAINER --config $CONFIG_FILE $file
-    control
-done
-
 # Remove the current container so we fetch the latest autobuild the next time
 # If you run a stable version (as YOU should), you don't need to remove the container,
 # instead make sure you remove all volumes (of data)
