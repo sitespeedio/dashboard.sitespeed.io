@@ -8,9 +8,9 @@ You should use this repository as an example of what you can setup yourself. The
 
 You can check out the [full documentation at our documentation site](https://www.sitespeed.io/documentation/sitespeed.io/continuously-run-your-tests/).
 
-Do you want to add a new URL to test on desktop? Navigate to [**desktop**](https://github.com/sitespeedio/dashboard.sitespeed.io/tree/main/tests/nyc3-1/desktop/urls) and create your new file there. Want to add a user journey? Add the script in [**desktop**](https://github.com/sitespeedio/dashboard.sitespeed.io/tree/main/tests/nyc3-1/desktop/scripts).
+Do you want to add a new URL to test on desktop? Navigate to [**desktop**](https://github.com/sitespeedio/dashboard.sitespeed.io/tree/main/tests/desktop) and create your new file there. Want to add a user journey? Add the script in the same place and name then *.js*.
 
-Our example run tests for [desktop](https://github.com/sitespeedio/dashboard.sitespeed.io/tree/main/tests/nyc3-1/desktop), [emulated mobile](https://github.com/sitespeedio/dashboard.sitespeed.io/tree/main/tests/nyc3-1/emulatedMobile) (both URLs and scripts), testing using WebPageReplay ([replay](https://github.com/sitespeedio/dashboard.sitespeed.io/tree/main/tests/nyc3-1/replay/urls)). But you probably don't need all that so you can remove the code in the [**run.sh**](https://github.com/sitespeedio/dashboard.sitespeed.io/blob/main/run.sh) script.
+Our example run tests for [desktop](https://github.com/sitespeedio/dashboard.sitespeed.io/tree/main/tests/desktop), [emulated mobile](https://github.com/sitespeedio/dashboard.sitespeed.io/tree/main/tests/emulatedMobile) (both URLs and scripts).
 
 The structure looks like this:
 
@@ -49,7 +49,7 @@ The structure looks like this:
         
 </pre>
 
-The [**loop.sh**](https://github.com/sitespeedio/dashboard.sitespeed.io/blob/main/loop.sh) is the start point. Run it and feed it with the folder name of the server (in our case we only run the tests on server names *nyc3-1*). That script will git pull the repo for every iteration and run the script [**run.sh**](https://github.com/sitespeedio/dashboard.sitespeed.io/blob/main/run.sh).
+The [**loop.sh**](https://github.com/sitespeedio/dashboard.sitespeed.io/blob/main/loop.sh) is the start point. Run it. That script will git pull the repo for every iteration and run the script [**run.sh**](https://github.com/sitespeedio/dashboard.sitespeed.io/blob/main/run.sh).
 
 Then [**run.sh**](https://github.com/sitespeedio/dashboard.sitespeed.io/blob/main/run.sh) will use the right configuration in [**/config/**](https://github.com/sitespeedio/dashboard.sitespeed.io/tree/main/config) and run the URLs/scripts that are configured. Our configuration files extends configuration files that only exits on the server where we hold secret information like username and passwords. You don't need set it up that way, if you use a private git repo.
 
@@ -130,9 +130,7 @@ On our server we have two configuration files that only exits on that server, th
 ## Run
 
 Go into the directory that where you cloned the directory: `cd dashboard.sitespeed.io`
-And then start: `nohup ./loop.sh nyc3-1 &`
-
-*nyc3-1* is the name of the start directory for the tests. If we would run multiple servers with different tests, we would have multiple folders and start each server differently.
+And then start: `nohup ./loop.sh &`
 
 To verify that everything works you should tail the log: `tail -f /tmp/sitespeed.io.log`
 
@@ -147,12 +145,8 @@ The script will then stop when it has finished the current run(s).
 Sometimes your cloud server reboots. To make sure it auto start your tests, you can add it to the crontab. Edit the crontab with `crontab -e` and add (make sure to change the path to your installation and the server name):
 
 ```bash
-@reboot rm /root/dashboard.sitespeed.io/sitespeed.run;cd /root/dashboard.sitespeed.io/ && ./loop.sh nyc3-1
+@reboot rm /root/dashboard.sitespeed.io/sitespeed.run;cd /root/dashboard.sitespeed.io/ && ./loop.sh
 ```
-
-## Namespace in Graphite
-
-The first part before the first dot in the filename will be appended to the Graphite namespace namespace (`--graphite.namespace`). If your file is named *login.js* the namespace will be `login`. If your file is named *login.2.js* the namespace is still `login`.
 
 [travis-image]: https://img.shields.io/travis/sitespeedio/dashboard.sitespeed.io.svg?style=flat-square
 [travis-url]: https://travis-ci.org/sitespeedio/dashboard.sitespeed.io
