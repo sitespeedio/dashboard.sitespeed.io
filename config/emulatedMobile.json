@@ -30,9 +30,9 @@
   "screenshot": {
     "type": "jpg"
   },
-  "slug": "bulk",
+  "slug": "firstView",
   "graphite": {
-    "namespace": "sitespeed_io.emulatedMobileFirstView",
+    "namespace": "sitespeed_io.emulatedMobile",
     "addSlugToKey": true
   }
 }
