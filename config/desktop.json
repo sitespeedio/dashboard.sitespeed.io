@@ -32,6 +32,7 @@
     "type": "jpg"
   },
   "slug": "firstView",
+  "copyLatestFilesToBase": true,
   "graphite": {
     "namespace": "sitespeed_io.desktop",
     "addSlugToKey": true

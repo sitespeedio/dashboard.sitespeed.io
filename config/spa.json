@@ -3,6 +3,7 @@
   "multi": true,
   "spa": true,
   "slug": "spa",
+  "copyLatestFilesToBase": true,
   "browsertime": {
     "pageCompleteWaitTime": 10000
   },

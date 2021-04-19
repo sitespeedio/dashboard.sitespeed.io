@@ -10,6 +10,7 @@
     "enable": true
   },
   "slug": "alexa",
+  "copyLatestFilesToBase": true,
   "graphite": {
     "annotationRetentionMinutes": 10,
     "namespace": "sitespeed_io.desktopFirstView",
