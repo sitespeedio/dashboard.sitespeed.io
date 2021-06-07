@@ -7,11 +7,11 @@ module.exports = async function(context, commands) {
     'https://dashboard.sitespeed.io/d/000000064/drilldown?orgId=1',
     'pageTimingMetricsDefault'
   );
-  await commands.click.byClassName('toolbar-button css-10k4nn8-toolbar-button');
+  await commands.click.byClassName('toolbar-button css-bdxldk-toolbar-button');
   await commands.wait.byTime(3000);
   await commands.measure.start('pageTimingMetrics30Days');
   await commands.click.byXpathAndWait(
-    '/html/body/grafana-app/div/div/react-container/div/div[1]/div[3]/div/div[1]/div/div/div[1]/div[2]/div[1]/div[2]/div[11]'
+    '/html/body/div/div/div[2]/div[3]/div[1]/div/div[4]/div/div[1]/div/div/div[1]/div[2]/div[1]/div[2]/div[11]'
   );
   await commands.wait.byTime(5000);
   return commands.measure.stop();
