@@ -18,8 +18,9 @@
     "firefox": {
       "includeResponseBodies": "all",
       "disableBrowsertimeExtension": true,
-      "geckoProfiler": true
-    }
+      "geckoProfiler": true,
+      "preference": ["gfx.webrender.force-legacy-layers:true"]
+     }
   },
   "cpu": true,
   "gzipHAR": true,
