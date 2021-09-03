@@ -30,6 +30,12 @@
   "screenshot": {
     "type": "jpg"
   },
+  "axe": {
+    "enable": true
+  },
+  "sustainable": {
+    "enable": true
+  },
   "slug": "politicalparties",
   "copyLatestFilesToBase": true,
   "graphite": {
