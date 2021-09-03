@@ -12,7 +12,8 @@
     "visualMetric": true,
     "chrome": {
       "collectConsoleLog": true,
-      "enableTraceScreenshots": true
+      "enableTraceScreenshots": true,
+      "includeResponseBodies": "all"
     },
     "firefox": {
       "includeResponseBodies": "all",
