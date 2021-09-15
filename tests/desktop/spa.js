@@ -10,9 +10,15 @@ module.exports = async function(context, commands) {
   await commands.click.byClassName('toolbar-button css-bdxldk-toolbar-button');
   await commands.wait.byTime(3000);
   await commands.measure.start('pageTimingMetrics30Days');
-  await commands.click.byXpathAndWait(
-    '/html/body/div/div/div[2]/div[3]/div[1]/div/div[4]/div/div[1]/div/div/div[1]/div[2]/div[1]/div[2]/div[11]'
-  );
-  await commands.wait.byTime(5000);
+  try {
+    await commands.click.byXpathAndWait(
+      '/html/body/div/div/main/div[3]/header/div/div[4]/div/div[1]/div/div/div/div[1]/div[1]/section[1]/fieldset/ul/li[11]'
+    );
+    await commands.wait.byTime(5000);
+  } catch (e) {
+    context.log.error('Could not find Grafanas 30 days dropdown');
+    throw e;
+  }
+
   return commands.measure.stop();
 };
