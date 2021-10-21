@@ -18,8 +18,7 @@
     "firefox": {
       "includeResponseBodies": "all",
       "disableBrowsertimeExtension": true,
-      "geckoProfiler": false,
-      "preference": ["gfx.webrender.force-legacy-layers:true"]
+      "geckoProfiler": true
      }
   },
   "cpu": true,
@@ -37,5 +36,8 @@
   "graphite": {
     "namespace": "sitespeed_io.desktop",
     "addSlugToKey": true
+  },
+  "thirdParty": {
+    "cpu": true
   }
 }

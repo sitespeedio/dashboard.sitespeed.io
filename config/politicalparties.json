@@ -42,5 +42,8 @@
   "graphite": {
     "namespace": "sitespeed_io.desktop",
     "addSlugToKey": true
+  },
+  "thirdParty": {
+    "cpu": false
   }
 }

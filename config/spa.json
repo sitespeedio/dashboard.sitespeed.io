@@ -11,5 +11,8 @@
     "namespace": "sitespeed_io.desktopUserJourney",
     "skipSummary": true,
     "addSlugToKey": true
+  },
+  "thirdParty": {
+    "cpu": false
   }
 }

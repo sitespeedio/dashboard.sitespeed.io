@@ -16,5 +16,8 @@
     "namespace": "sitespeed_io.desktopFirstView",
     "skipSummary": true,
     "addSlugToKey": true
+  },
+  "thirdParty": {
+    "cpu": false
   }
 }
