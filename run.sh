@@ -2,9 +2,9 @@
 
 # We use the autobuild to always test our new functionality. But YOU should not do that!
 # Instead use the latest tagged version as the next row
-# DOCKER_CONTAINER=sitespeedio/sitespeed.io:16.2.0
+DOCKER_CONTAINER=sitespeedio/sitespeed.io:21.1.0
 
-DOCKER_CONTAINER=sitespeedio/sitespeed.io-autobuild:main
+# DOCKER_CONTAINER=sitespeedio/sitespeed.io-autobuild:main
 DOCKER_SETUP="--cap-add=NET_ADMIN  --shm-size=2g --rm -v /config:/config -v "$(pwd)":/sitespeed.io -v /etc/localtime:/etc/localtime:ro -e MAX_OLD_SPACE_SIZE=3072 "
 DESKTOP_BROWSERS=(chrome firefox)
 EMULATED_MOBILE_BROWSERS=(chrome)
@@ -36,6 +36,6 @@ done
 # Remove the current container so we fetch the latest autobuild the next time
 # If you run a stable version (as YOU should), you don't need to remove the container,
 # instead make sure you remove all volumes (of data)
-# docker volume prune -f
-docker system prune --all --volumes -f
+docker volume prune -f
+# docker system prune --all --volumes -f
 sleep 20
