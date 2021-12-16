@@ -4,12 +4,15 @@
     "enable": true
   },
   "browsertime": {
-    "iterations": 3
-  },
+    "connectivity": {
+      "engine": "throttle",
+      "profile": "cable"
+    }
+    },
   "sustainable": {
     "enable": true
   },
-  "slug": "news",
+  "slug": "newsArticles",
   "copyLatestFilesToBase": true,
   "graphite": {
     "annotationRetentionMinutes": 10,
