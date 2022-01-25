@@ -30,10 +30,6 @@ services:
         - "8080:80"
       networks:
       - backend
-      - 3g
-      - 3gfast
-      - 3gslow
-      - cable
       restart: always
       volumes:
         # In production you should configure/map these to your container
@@ -64,15 +60,3 @@ volumes:
 networks:
     frontend: {}
     backend: {}
-    3g: {
-      external: true
-    }
-    3gslow: {
-      external: true
-    }
-    3gfast: {
-      external: true
-    }
-    cable: {
-      external: true
-    }
