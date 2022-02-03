@@ -13,7 +13,10 @@
     "visualMetric": true,
     "chrome": {
       "collectConsoleLog": true,
-      "enableTraceScreenshots": true
+      "enableTraceScreenshots": true,
+      "args": [
+        "disable-features=PaintHoldingCrossOrigin"
+      ]
     },
     "firefox": {
       "includeResponseBodies": "all",
