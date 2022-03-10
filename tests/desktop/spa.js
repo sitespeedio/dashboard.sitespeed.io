@@ -7,7 +7,7 @@ module.exports = async function (context, commands) {
     'https://dashboard.sitespeed.io/d/000000064/drilldown?orgId=1',
     'pageTimingMetricsDefault'
   );
-  await commands.click.byClassName('toolbar-button css-1hzht9j-toolbar-button');
+  await commands.click.byClassName('toolbar-button css-1onekoi-toolbar-button');
   await commands.wait.byTime(3000);
   await commands.measure.start('pageTimingMetrics30Days');
   try {
