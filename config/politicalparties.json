@@ -10,6 +10,7 @@
     "browser": "chrome",
     "video": true,
     "visualMetric": true,
+    "visualMetricsPortable": true,
     "chrome": {
       "collectConsoleLog": true,
       "enableTraceScreenshots": true,

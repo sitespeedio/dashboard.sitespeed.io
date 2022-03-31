@@ -11,6 +11,7 @@
     "browser": "chrome",
     "video": true,
     "visualMetric": true,
+    "visualMetricsPortable": true,
     "chrome": {
       "CPUThrottlingRate": 5,
       "collectConsoleLog": true,
