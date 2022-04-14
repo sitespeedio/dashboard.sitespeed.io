@@ -11,9 +11,13 @@
     "browser": "chrome",
     "video": true,
     "visualMetric": true,
+    "visualMetricsPortable": true,
     "chrome": {
       "collectConsoleLog": true,
-      "enableTraceScreenshots": true
+      "enableTraceScreenshots": true,
+      "args": [
+        "disable-features=PaintHoldingCrossOrigin"
+      ]
     },
     "firefox": {
       "includeResponseBodies": "all",

@@ -11,11 +11,15 @@
     "browser": "chrome",
     "video": true,
     "visualMetric": true,
+    "visualMetricsPortable": true,
     "chrome": {
       "CPUThrottlingRate": 5,
       "collectConsoleLog": true,
       "includeResponseBodies": "html",
-      "enableTraceScreenshots": true
+      "enableTraceScreenshots": true,
+      "args": [
+        "disable-features=PaintHoldingCrossOrigin"
+      ]
     }
   },
   "utc": true,
