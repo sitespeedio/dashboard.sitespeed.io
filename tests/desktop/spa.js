@@ -7,12 +7,12 @@ module.exports = async function (context, commands) {
     'https://dashboard.sitespeed.io/d/000000064/drilldown?orgId=1',
     'pageTimingMetricsDefault'
   );
-  await commands.click.byClassName('toolbar-button css-1onekoi-toolbar-button');
+  await commands.click.byClassName('toolbar-button css-qo3whe-toolbar-button');
   await commands.wait.byTime(3000);
   await commands.measure.start('pageTimingMetrics30Days');
   try {
     await commands.click.byXpathAndWait(
-      '/html/body/div/div/main/div[3]/header/div/div[4]/div/div[1]/section/div/div[1]/div[1]/div[2]/div[1]/ul/li[11]/label'
+      '/html/body/div[1]/div/main/div[3]/header/nav/div[4]/div/div[1]/section/div/div[1]/div[1]/div[2]/div[1]/ul/li[11]/label'
     );
     await commands.wait.byTime(5000);
   } catch (e) {
