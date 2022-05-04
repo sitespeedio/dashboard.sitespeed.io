@@ -11,6 +11,9 @@
     "video": true,
     "visualMetric": true,
     "visualMetricsPortable": true,
+    "videoParams": {
+      "filmstripFullSize": true
+    },
     "chrome": {
       "collectConsoleLog": true,
       "enableTraceScreenshots": true,
