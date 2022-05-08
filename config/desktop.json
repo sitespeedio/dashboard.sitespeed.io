@@ -17,10 +17,7 @@
     },
     "chrome": {
       "collectConsoleLog": true,
-      "enableTraceScreenshots": true,
-      "args": [
-        "disable-features=PaintHoldingCrossOrigin"
-      ]
+      "enableTraceScreenshots": true
     },
     "firefox": {
       "includeResponseBodies": "all",
