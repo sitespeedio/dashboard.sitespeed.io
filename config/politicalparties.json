@@ -12,7 +12,7 @@
     "visualMetric": true,
     "visualMetricsPortable": true,
     "videoParams": {
-      "filmstripFullSize": true
+      "thumbsize": 800
     },
     "chrome": {
       "collectConsoleLog": true,

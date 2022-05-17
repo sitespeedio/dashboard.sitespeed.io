@@ -20,6 +20,9 @@
       "args": [
         "disable-features=PaintHoldingCrossOrigin"
       ]
+    },
+    "videoParams": {
+      "thumbsize": 600
     }
   },
   "utc": true,
