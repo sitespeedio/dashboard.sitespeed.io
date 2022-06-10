@@ -12,12 +12,12 @@
     "video": true,
     "visualMetric": true,
     "visualMetricsPortable": true,
+    "videoParams": {
+      "thumbsize": 600
+    },
     "chrome": {
       "collectConsoleLog": true,
-      "enableTraceScreenshots": true,
-      "args": [
-        "disable-features=PaintHoldingCrossOrigin"
-      ]
+      "enableTraceScreenshots": true
     },
     "firefox": {
       "includeResponseBodies": "all",

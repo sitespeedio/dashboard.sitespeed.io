@@ -11,6 +11,9 @@
     "video": true,
     "visualMetric": true,
     "visualMetricsPortable": true,
+    "videoParams": {
+      "thumbsize": 800
+    },
     "chrome": {
       "collectConsoleLog": true,
       "enableTraceScreenshots": true,
