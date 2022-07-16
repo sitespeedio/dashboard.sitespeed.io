@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LOGFILE=/var/log/sitespeed.io.log
+LOGFILE=/var/log/sitespeed.io/sitespeed.io.log
 exec > $LOGFILE 2>&1
 
 # In your curent dir we will place a file called sitespeed.run that shows that the tests are running
