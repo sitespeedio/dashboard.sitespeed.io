@@ -1,10 +1,10 @@
 {
   "extends": "./config/desktop.json",
   "multi": true,
-  "slug": "wikipediaRabbitHole",
+  "slug": "userJourney",
   "copyLatestFilesToBase": true,
   "graphite": {
     "addSlugToKey": true,
-    "namespace": "sitespeed_io.desktopUserJourney"
+    "namespace": "sitespeed_io.desktop"
   }
 }

@@ -2,17 +2,18 @@
 
 # We use the autobuild to always test our new functionality. But YOU should not do that!
 # Instead use the latest tagged version as the next row
-# DOCKER_CONTAINER=sitespeedio/sitespeed.io:16.2.0
+# DOCKER_CONTAINER=sitespeedio/sitespeed.io:25.5.1
 
 DOCKER_CONTAINER=sitespeedio/sitespeed.io-autobuild:main
 DOCKER_SETUP="--cap-add=NET_ADMIN  --shm-size=2g --rm -v /config:/config -v "$(pwd)":/sitespeed.io -v /etc/localtime:/etc/localtime:ro -e MAX_OLD_SPACE_SIZE=3072 "
-DESKTOP_BROWSERS=(chrome firefox)
+DESKTOP_BROWSERS_DOCKER=(chrome firefox)
+DESKTOP_BROWSERS=(chrome firefox edge)
 EMULATED_MOBILE_BROWSERS=(chrome)
 
 # We loop through the desktop directory
 
-for file in tests/desktop/*.{txt,js} ; do
-    for browser in "${DESKTOP_BROWSERS[@]}" ; do
+for file in tests/docker/desktop/*.{txt,js} ; do
+    for browser in "${DESKTOP_BROWSERS_DOCKER[@]}" ; do
         FILENAME=$(basename -- "$file")
         FILENAME_WITHOUT_EXTENSION="${FILENAME%.*}"
         CONFIG_FILE="config/$FILENAME_WITHOUT_EXTENSION.json"
@@ -22,13 +23,25 @@ for file in tests/desktop/*.{txt,js} ; do
     done
 done
 
-for file in tests/emulatedMobile/*.{txt,js} ; do
+for file in tests/docker/emulatedMobile/*.{txt,js} ; do
     for browser in "${EMULATED_MOBILE_BROWSERS[@]}" ; do
         FILENAME=$(basename -- "$file")
         FILENAME_WITHOUT_EXTENSION="${FILENAME%.*}"
         CONFIG_FILE="config/$FILENAME_WITHOUT_EXTENSION.json"
         [[ -f "$CONFIG_FILE" ]] && echo "Using config file $CONFIG_FILE" || echo "Missing config file $CONFIG_FILE"
         docker run $DOCKER_SETUP $DOCKER_CONTAINER --config $CONFIG_FILE -b $browser $file
+        control
+    done
+done
+
+# Run test direct on Ubuntu
+for file in tests/desktop/*.{txt,js} ; do
+    for browser in "${DESKTOP_BROWSERS[@]}" ; do
+        FILENAME=$(basename -- "$file")
+        FILENAME_WITHOUT_EXTENSION="${FILENAME%.*}"
+        CONFIG_FILE="config/$FILENAME_WITHOUT_EXTENSION.json"
+        [[ -f "$CONFIG_FILE" ]] && echo "Using config file $CONFIG_FILE" || echo "Missing config file $CONFIG_FILE"
+        sitespeed.io --config $CONFIG_FILE -b $browser $file
         control
     done
 done

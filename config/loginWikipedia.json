@@ -8,6 +8,6 @@
   "multi": true,
   "graphite": {
     "addSlugToKey": true,
-    "namespace": "sitespeed_io.desktopUserJourney"
+    "namespace": "sitespeed_io.desktop"
   }
 }

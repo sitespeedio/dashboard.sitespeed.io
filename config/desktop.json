@@ -10,7 +10,7 @@
     "iterations": 3,
     "browser": "chrome",
     "video": true,
-    "visualMetric": true,
+    "visualMetrics": true,
     "visualMetricsPortable": true,
     "videoParams": {
       "thumbsize": 600
@@ -35,7 +35,7 @@
   "screenshot": {
     "type": "jpg"
   },
-  "slug": "firstView",
+  "slug": "firstViewDocker",
   "copyLatestFilesToBase": true,
   "graphite": {
     "namespace": "sitespeed_io.desktop",

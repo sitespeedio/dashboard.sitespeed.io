@@ -1,0 +1,14 @@
+{
+  "extends": "./desktop.json",
+  "browsertime": {
+    "iterations": 5,
+    "flushDNS": true,
+    "xvfb": true,
+    "preURL": "https://en.wikipedia.org/wiki/Main_Page"
+  },
+  "slug": "secondView",
+  "graphite": {
+    "namespace": "sitespeed_io.desktop",
+    "addSlugToKey": true
+  }
+}
