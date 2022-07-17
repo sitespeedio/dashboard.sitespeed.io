@@ -1,5 +1,6 @@
 {
   "extends": "/config/secrets.json",
+  "utc": true,
   "browsertime": {
     "connectivity": {
       "engine": "throttle",
