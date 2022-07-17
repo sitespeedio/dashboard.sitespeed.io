@@ -47,7 +47,7 @@ for file in tests/desktop/*.{txt,js} ; do
 done
 
 # Run a couple of tests using WebPageReplay
-for file in tests/docker/webpagereplay/*.{txt} ; do
+for file in tests/docker/webpagereplay/*.txt ; do
     for browser in "${DESKTOP_BROWSERS_DOCKER[@]}" ; do
         FILENAME=$(basename -- "$file")
         FILENAME_WITHOUT_EXTENSION="${FILENAME%.*}"
