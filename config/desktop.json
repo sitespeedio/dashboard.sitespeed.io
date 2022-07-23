@@ -37,6 +37,7 @@
   },
   "slug": "firstViewDocker",
   "copyLatestFilesToBase": true,
+  "copyLatestFilesToBaseGraphiteNamespace": true,
   "graphite": {
     "namespace": "sitespeed_io.desktop",
     "addSlugToKey": true

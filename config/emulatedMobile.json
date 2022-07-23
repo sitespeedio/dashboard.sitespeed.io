@@ -39,6 +39,7 @@
   },
   "slug": "firstView",
   "copyLatestFilesToBase": true,
+  "copyLatestFilesToBaseGraphiteNamespace": true,
   "graphite": {
     "namespace": "sitespeed_io.emulatedMobile",
     "addSlugToKey": true
