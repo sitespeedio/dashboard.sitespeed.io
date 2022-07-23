@@ -5,9 +5,5 @@
     "flushDNS": true,
     "xvfb": true
   },
-  "slug": "firstView",
-  "graphite": {
-    "namespace": "sitespeed_io.desktop",
-    "addSlugToKey": true
-  }
+  "slug": "firstView"
 }

@@ -1,5 +1,5 @@
 {
-  "extends": "./config/desktop.json",
+  "extends": "./config/emulatedMobile.json",
   "multi": true,
   "slug": "userJourney"
 }

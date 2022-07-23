@@ -4,10 +4,5 @@
     "iterations": 1
   },
   "slug": "loginWikipedia",
-  "copyLatestFilesToBase": true,
-  "multi": true,
-  "graphite": {
-    "addSlugToKey": true,
-    "namespace": "sitespeed_io.desktop"
-  }
+  "multi": true
 }
