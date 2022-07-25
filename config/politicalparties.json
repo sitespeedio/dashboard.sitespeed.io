@@ -1,3 +1,9 @@
 {
-  "extends": "./config/desktop.json"
+  "extends": "./config/desktop.json",
+  "axe": {
+    "enable": true
+  },
+  "sustainable": {
+    "enable": true
+  }
 }
