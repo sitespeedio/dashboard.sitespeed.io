@@ -1,11 +1,11 @@
 #!/bin/bash
 
-LOGFILE=/tmp/sitespeed.io.log
+LOGFILE=/var/log/sitespeed.io/sitespeed.io.log
 exec > $LOGFILE 2>&1
 
 # In your curent dir we will place a file called sitespeed.run that shows that the tests are running
 # If you want to stop the tests gracefully, remove that file: rm sitespeed.io and wait for
-# the tests to finish (tail -f /tmp/sitespeed.io)
+# the tests to finish (tail -f /var/log/sitespeed.io.log)
 CONTROL_FILE="./sitespeed.run"
 
 # You cannot start multiple instances!
@@ -30,7 +30,7 @@ function control() {
     fi
 }
 
-# To get throttle to work (https://github.com/sitespeedio/throttle)!
+# To get throttle to work in Docker (https://github.com/sitespeedio/throttle)!
 sudo modprobe ifb numifbs=1
 
 while true

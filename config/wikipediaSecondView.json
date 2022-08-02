@@ -1,0 +1,10 @@
+{
+  "extends": "./config/desktop.json",
+  "browsertime": {
+    "iterations": 5,
+    "flushDNS": true,
+    "xvfb": true,
+    "preURL": "https://en.wikipedia.org/wiki/Main_Page"
+  },
+  "slug": "secondView"
+}

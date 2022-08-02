@@ -1,10 +1,11 @@
 {
   "extends": "/config/crux.json",
+  "utc": true,
   "plugins": {
     "remove": "browsertime"
   },
   "graphite": {
-    "namespace": "sitespeed_io.crux",
+    "namespace": "sitespeed_io_crux.crux",
     "addSlugToKey": true
   },
   "slug": "performance-tools"

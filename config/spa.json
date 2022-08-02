@@ -8,7 +8,7 @@
     "pageCompleteWaitTime": 10000
   },
   "graphite": {
-    "namespace": "sitespeed_io.desktopUserJourney",
+    "namespace": "sitespeed_io.desktop",
     "skipSummary": true,
     "addSlugToKey": true
   },

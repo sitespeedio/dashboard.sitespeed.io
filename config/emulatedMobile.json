@@ -10,7 +10,7 @@
     "iterations": 3,
     "browser": "chrome",
     "video": true,
-    "visualMetric": true,
+    "visualMetrics": true,
     "visualMetricsPortable": true,
     "chrome": {
       "CPUThrottlingRate": 5,
@@ -39,6 +39,7 @@
   },
   "slug": "firstView",
   "copyLatestFilesToBase": true,
+  "copyLatestFilesToBaseGraphiteNamespace": true,
   "graphite": {
     "namespace": "sitespeed_io.emulatedMobile",
     "addSlugToKey": true
