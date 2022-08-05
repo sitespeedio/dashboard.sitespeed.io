@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "extends": "./config/secrets.json",
   "browsertime": {
     "connectivity": {
@@ -35,19 +36,13 @@
   "screenshot": {
     "type": "jpg"
   },
+=======
+  "extends": "./config/desktop.json",
+>>>>>>> c2b879064b11831288ee60c20ed0e9678fd7e3f5
   "axe": {
     "enable": true
   },
   "sustainable": {
     "enable": true
-  },
-  "slug": "politicalparties",
-  "copyLatestFilesToBase": true,
-  "graphite": {
-    "namespace": "sitespeed_io.desktop",
-    "addSlugToKey": true
-  },
-  "thirdParty": {
-    "cpu": false
   }
 }

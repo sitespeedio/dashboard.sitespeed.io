@@ -1,16 +1,20 @@
 {
+<<<<<<< HEAD
   "extends": "./config/secrets.json",
+=======
+  "extends": "/config/secrets.json",
+  "utc": true,
+>>>>>>> c2b879064b11831288ee60c20ed0e9678fd7e3f5
   "browsertime": {
     "connectivity": {
       "engine": "throttle",
       "profile": "cable"
     },
     "visualElements": true,
-    "visualMetricsNotification": true,
     "iterations": 3,
     "browser": "chrome",
     "video": true,
-    "visualMetric": true,
+    "visualMetrics": true,
     "visualMetricsPortable": true,
     "videoParams": {
       "thumbsize": 600
@@ -35,8 +39,9 @@
   "screenshot": {
     "type": "jpg"
   },
-  "slug": "firstView",
+  "slug": "firstViewDocker",
   "copyLatestFilesToBase": true,
+  "copyLatestFilesToBaseGraphiteNamespace": true,
   "graphite": {
     "namespace": "sitespeed_io.desktop",
     "addSlugToKey": true
