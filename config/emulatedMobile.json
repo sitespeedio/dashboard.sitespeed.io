@@ -42,6 +42,7 @@
   "copyLatestFilesToBaseGraphiteNamespace": true,
   "graphite": {
     "namespace": "sitespeed_io.emulatedMobile",
-    "addSlugToKey": true
+    "addSlugToKey": true,
+    "messages": ["pageSummary", "run"]
   }
 }
