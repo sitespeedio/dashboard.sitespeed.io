@@ -21,8 +21,7 @@
     },
     "firefox": {
       "includeResponseBodies": "all",
-      "disableBrowsertimeExtension": true,
-      "geckoProfiler": true
+      "disableBrowsertimeExtension": true
      }
   },
   "cpu": true,
