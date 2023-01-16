@@ -2,3 +2,5 @@ https://en.wikipedia.org/wiki/Main_Page
 https://en.wikipedia.org/wiki/Barack_Obama
 https://en.wikipedia.org/wiki/Sweden
 https://en.wikipedia.org/wiki/Facebook
+https://en.wikipedia.org/wiki/Barack_Obama?useskin=vector-2022 barack-vector-2022
+https://en.wikipedia.org/wiki/Main_Page?useskin=vector-2022 main-page-vector-2022
