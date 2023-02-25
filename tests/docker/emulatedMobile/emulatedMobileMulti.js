@@ -1,4 +1,4 @@
-module.exports = async function(context, commands) {
+export default async function (context, commands) {
   commands.meta.setTitle('Test multiple pages emulated mobile');
   commands.meta.setDescription(
     'First hit Main_Page with empty cache, then Barack and last Democratic Party.'

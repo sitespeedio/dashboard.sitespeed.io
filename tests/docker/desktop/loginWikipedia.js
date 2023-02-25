@@ -1,4 +1,4 @@
-module.exports = async function(context, commands) {
+export default async function (context, commands) {
   // We start by navigating to the login page.
   await commands.measure.start(
     'https://en.wikipedia.org/w/index.php?title=Special:UserLogin&returnto=Main+Page',

@@ -1,4 +1,4 @@
-module.exports = async function(context, commands) {
+export default async function (context, commands) {
   commands.meta.setTitle('Test visiting multiple pages');
   commands.meta.setDescription(
     'First hit the Main_Page with an empty browser cache and then visit Barack, followed by the Democratic Party'
