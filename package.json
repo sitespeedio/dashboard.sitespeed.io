@@ -1,5 +1,6 @@
 {
   "private": true,
+  "type": "module",
   "license": "MIT",
   "scripts": {
     "test": "eslint . --ext .json --ext .js",
