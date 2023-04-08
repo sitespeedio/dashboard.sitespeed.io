@@ -16,10 +16,7 @@
       "CPUThrottlingRate": 5,
       "collectConsoleLog": true,
       "includeResponseBodies": "html",
-      "enableTraceScreenshots": true,
-      "args": [
-        "disable-features=PaintHoldingCrossOrigin"
-      ]
+      "enableTraceScreenshots": true
     },
     "videoParams": {
       "thumbsize": 600
