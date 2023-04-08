@@ -20,6 +20,7 @@
       "enableTraceScreenshots": true
     },
     "firefox": {
+      "bidihar": true,
       "includeResponseBodies": "all",
       "disableBrowsertimeExtension": true
      }

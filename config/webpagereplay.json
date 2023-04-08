@@ -16,7 +16,8 @@
       ]
     },
     "firefox": {
-      "acceptInsecureCerts": true
+      "acceptInsecureCerts": true,
+      "bidihar": true
     }
   },
   "slug": "webpagereplay",
