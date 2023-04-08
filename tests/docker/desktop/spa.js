@@ -12,13 +12,13 @@ export default async function (context, commands) {
   await commands.measure.start('pageTimingMetrics30Days');
   try {
     await commands.click.byXpathAndWait(
-      '//*[@id="TimePickerContent"]/div[1]/div[1]/div[2]/div[1]/ul/li[11]'
+      '//*[@id="TimePickerContent"]/div[1]/div[1]/div[2]/div[1]/ul/li[9]/label'
     );
     await commands.wait.byTime(5000);
-  } catch (e) {
+  } catch (error) {
     context.log.error('Could not find Grafanas 30 days dropdown');
-    throw e;
+    throw error;
   }
 
   return commands.measure.stop();
-};
+}
