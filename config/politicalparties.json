@@ -5,5 +5,8 @@
   },
   "sustainable": {
     "enable": true
+  },
+  "browsertime": {
+    "iterations": 1
   }
 }
