@@ -1,4 +1,8 @@
-export default async function (context, commands) {
+/**
+ * @param {import('browsertime').BrowsertimeContext} context
+ * @param {import('browsertime').BrowsertimeCommands} commands
+ */
+export default async function(context, commands) {
   // We start by navigating to the login page.
   await commands.measure.start(
     'https://en.wikipedia.org/w/index.php?title=Special:UserLogin&returnto=Main+Page',
@@ -50,4 +54,4 @@ export default async function (context, commands) {
     // We try/catch so we will catch if the the input fields can't be found
     // The error is automatically logged in Browsertime and re-thrown here
   }
-};
+}

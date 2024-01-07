@@ -7,6 +7,7 @@
     "lint:fix": "eslint . --fix --ext .json --ext .js"
   },
   "devDependencies": {
+    "browsertime": "21.0.0",
     "eslint": "^6.2.0",
     "eslint-config-prettier": "^6.1.0",
     "eslint-plugin-json": "^1.4.0",
