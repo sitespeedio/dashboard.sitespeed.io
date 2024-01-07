@@ -1,4 +1,8 @@
-export default async function (context, commands) {
+/**
+ * @param {import('browsertime').BrowsertimeContext} context
+ * @param {import('browsertime').BrowsertimeCommands} commands
+ */
+export default async function(context, commands) {
   commands.meta.setTitle('Test visiting multiple pages');
   commands.meta.setDescription(
     'First hit the Main_Page with an empty browser cache and then visit Barack, followed by the Democratic Party'
@@ -18,4 +22,4 @@ export default async function (context, commands) {
   return commands.measure.start(
     'https://en.wikipedia.org/wiki/Democratic_Party_(United_States)'
   );
-};
+}

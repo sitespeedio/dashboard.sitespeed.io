@@ -1,4 +1,8 @@
-export default async function (context, commands) {
+/**
+ * @param {import('browsertime').BrowsertimeContext} context
+ * @param {import('browsertime').BrowsertimeCommands} commands
+ */
+export default async function(context, commands) {
   commands.meta.setTitle('Test multiple pages emulated mobile');
   commands.meta.setDescription(
     'First hit Main_Page with empty cache, then Barack and last Democratic Party.'
@@ -16,4 +20,4 @@ export default async function (context, commands) {
   return commands.measure.start(
     'https://en.m.wikipedia.org/wiki/Democratic_Party_(United_States)'
   );
-};
+}

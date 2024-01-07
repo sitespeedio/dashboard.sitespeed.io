@@ -1,4 +1,8 @@
-export default async function (context, commands) {
+/**
+ * @param {import('browsertime').BrowsertimeContext} context
+ * @param {import('browsertime').BrowsertimeCommands} commands
+ */
+export default async function(context, commands) {
   commands.meta.setTitle('Test Grafana SPA');
   commands.meta.setDescription(
     'Test the first page, click the timepicker and then choose <b>Last 30 days</b> and measure that page.'
