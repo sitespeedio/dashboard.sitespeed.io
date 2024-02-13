@@ -4,14 +4,14 @@
   "browsertime": {
     "connectivity": {
       "engine": "throttle",
-      "profile": "cable"
+      "profile": "4g"
     },
     "visualElements": true,
     "iterations": 3,
     "browser": "chrome",
     "video": true,
     "visualMetrics": true,
-    "visualMetricsPortable": true,
+
     "videoParams": {
       "thumbsize": 600
     },
@@ -21,7 +21,6 @@
     },
     "firefox": {
       "bidihar": true,
-      "includeResponseBodies": "all",
       "disableBrowsertimeExtension": true
      }
   },
