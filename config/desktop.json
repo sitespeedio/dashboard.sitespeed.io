@@ -11,7 +11,7 @@
     "browser": "chrome",
     "video": true,
     "visualMetrics": true,
-
+    "flushDNS": true,
     "videoParams": {
       "thumbsize": 600
     },
