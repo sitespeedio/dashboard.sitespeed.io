@@ -16,7 +16,7 @@ export default async function(context, commands) {
   await commands.measure.start('pageTimingMetrics30Days');
   try {
     await commands.click.byXpathAndWait(
-      '/html/body/div[1]/div[1]/div/div[1]/div[2]/div[2]/div[3]/div/div[1]/div/section/div/div[1]/div[1]/div[2]/div[1]/ul/li[11]/label'
+      '/html/body/div/div[1]/div/header/div[2]/div[2]/div[2]/div[4]/div[1]/div/section/div/div[1]/div[1]/div[2]/div[1]/ul/li[11]/label'
     );
     await commands.wait.byTime(5000);
   } catch (error) {
