@@ -11,12 +11,12 @@ export default async function(context, commands) {
     'https://dashboard.sitespeed.io/d/9NDMzFfMk/page-metrics-desktop?orgId=1&var-base=sitespeed_io&var-path=desktop&var-testname=spa&var-group=dashboard_sitespeed_io&var-page=pageTimingMetricsDefault&var-browser=chrome&var-connectivity=cable&var-function=median&var-resulturl=https:%2F%2Fdata.sitespeed.io%2F&var-screenshottype=jpg',
     'pageTimingMetricsDefault'
   );
-  await commands.click.byClassName('css-1jq19ai');
+  await commands.click.byClassName('css-16us58v-toolbar-button');
   await commands.wait.byTime(3000);
   await commands.measure.start('pageTimingMetrics30Days');
   try {
     await commands.click.byXpathAndWait(
-      '/html/body/div/div[1]/div/header/div[2]/div[2]/div[2]/div[4]/div[1]/div/section/div/div[1]/div[1]/div[2]/div[1]/ul/li[11]/label'
+      '/html/body/div/div/div[1]/div/div/main/div[3]/div/div/div[1]/div/div[2]/div[1]/div/section/div/div[1]/div[1]/div[2]/ul/li[11]/label'
     );
     await commands.wait.byTime(5000);
   } catch (error) {
