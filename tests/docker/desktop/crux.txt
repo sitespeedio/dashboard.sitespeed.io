@@ -1,4 +1,3 @@
 https://www.sitespeed.io/
-https://web.dev/measure/
-https://speedcurve.com/
+https://web.dev/performance
 https://www.webpagetest.org/
