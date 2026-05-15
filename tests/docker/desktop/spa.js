@@ -20,10 +20,16 @@ export default async function(context, commands) {
   );
   await commands.measure.start('pageTimingMetrics30Days');
   try {
-    await commands.click.byXpath('//label[normalize-space(.)="Last 30 days"]');
+    await commands.click.byXpath(
+      '//li[label[normalize-space(.)="Last 30 days"]]/input'
+    );
+    await commands.wait.byCondition(
+      'window.location.href.includes("from=now-30d")',
+      10000
+    );
     await commands.wait.byTime(5000);
   } catch (error) {
-    context.log.error('Could not find Grafanas 30 days dropdown');
+    context.log.error('Could not select Grafanas Last 30 days range');
     throw error;
   }
 
