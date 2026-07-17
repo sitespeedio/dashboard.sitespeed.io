@@ -25,6 +25,7 @@
      }
   },
   "cpu": true,
+  "enableProfileRun": true,
   "gzipHAR": true,
   "html": {
     "fetchHARFiles": true,

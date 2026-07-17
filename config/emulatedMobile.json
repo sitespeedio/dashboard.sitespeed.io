@@ -23,6 +23,7 @@
     }
   },
   "utc": true,
+  "enableProfileRun": true,
   "cpu": true,
   "gzipHAR": true,
   "html": {

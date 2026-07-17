@@ -4,5 +4,6 @@
     "iterations": 1
   },
   "slug": "loginWikipedia",
-  "multi": true
+  "multi": true,
+  "enableProfileRun": true
 }
