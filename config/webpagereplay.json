@@ -23,5 +23,11 @@
   "graphite": {
     "namespace": "sitespeed_io.desktop",
     "addSlugToKey": true
+  },
+  "opensearch": {
+    "host": "dashboard.sitespeed.io"
+  },
+  "compare": {
+    "saveBaseline": true
   }
 }
