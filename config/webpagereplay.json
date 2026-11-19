@@ -25,7 +25,8 @@
     "addSlugToKey": true
   },
   "opensearch": {
-    "host": "dashboard.sitespeed.io"
+    "host": "dashboard.sitespeed.io",
+    "includeRuns": true
   },
   "compare": {
     "saveBaseline": true

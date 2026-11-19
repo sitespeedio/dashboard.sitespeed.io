@@ -15,7 +15,7 @@ Read the [full documentation](https://www.sitespeed.io/documentation/sitespeed.i
 | [tests/docker/desktop](tests/docker/desktop) (URLs and user journeys) | Chrome, Firefox | Graphite | Page metrics, Leaderboard, User journey |
 | [tests/docker/emulatedMobile](tests/docker/emulatedMobile) | Chrome | Graphite | Page metrics, Leaderboard, User journey |
 | [tests/desktop](tests/desktop) (sitespeed.io installed on the server, not in Docker) | Chrome, Firefox, Edge | Graphite | Page metrics, Leaderboard |
-| [tests/docker/webpagereplay](tests/docker/webpagereplay) ([WebPageReplay](https://www.sitespeed.io/documentation/sitespeed.io/webpagereplay/)) | Chrome, Firefox | Graphite, OpenSearch, and the [compare plugin](https://www.sitespeed.io/documentation/sitespeed.io/compare/) | Page metrics (Regressions tab), OpenSearch |
+| [tests/docker/webpagereplay](tests/docker/webpagereplay) ([WebPageReplay](https://www.sitespeed.io/documentation/sitespeed.io/webpagereplay/)) | Chrome, Firefox | Graphite, OpenSearch (also every run), and the [compare plugin](https://www.sitespeed.io/documentation/sitespeed.io/compare/) | Page metrics (Regressions tab), OpenSearch |
 | [tests/docker/desktop/crux.txt](tests/docker/desktop/crux.txt) | No browser, only the Chrome User Experience Report API | Graphite | Chrome User Experience Report |
 
 The WebPageReplay test compares each run with the run before it (`compare.saveBaseline`). WebPageReplay replays the same recorded responses every time, so a significant change there comes from the browser or the page code, not from the network. The baselines are saved as JSON files in the folder where the tests run.
