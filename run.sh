@@ -53,7 +53,11 @@ for file in tests/docker/webpagereplay/*.txt ; do
         FILENAME_WITHOUT_EXTENSION="${FILENAME%.*}"
         CONFIG_FILE="config/$FILENAME_WITHOUT_EXTENSION.json"
         [[ -f "$CONFIG_FILE" ]] && echo "Using config file $CONFIG_FILE" || echo "Missing config file $CONFIG_FILE"
-        docker run $DOCKER_SETUP  -e REPLAY=true -e LATENCY=100 $DOCKER_CONTAINER --config $CONFIG_FILE -b $browser $file
+        # Save a new compare baseline on Sundays, so the rest of the week
+        # is compared with the last Sunday test
+        BASELINE=""
+        [[ "$(date +%u)" == "7" ]] && BASELINE="--compare.saveBaseline"
+        docker run $DOCKER_SETUP  -e REPLAY=true -e LATENCY=100 $DOCKER_CONTAINER --config $CONFIG_FILE $BASELINE -b $browser $file
         control
     done
 done
