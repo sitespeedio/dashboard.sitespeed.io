@@ -1,7 +1,7 @@
 {
   "extends": "./config/desktop.json",
   "browsertime": {
-    "iterations": 11,
+    "iterations": 21,
     "connectivity": {
       "engine": "external",
       "profile": "custom",
@@ -29,6 +29,6 @@
     "includeRuns": true
   },
   "compare": {
-    "saveBaseline": true
+    "testType": "mannwhitneyu"
   }
 }
