@@ -5,5 +5,8 @@
     "flushDNS": true,
     "xvfb": true
   },
-  "slug": "firstView"
+  "slug": "firstView",
+  "opensearch": {
+    "host": "dashboard.sitespeed.io"
+  }
 }
