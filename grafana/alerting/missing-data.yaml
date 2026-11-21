@@ -1,0 +1,52 @@
+# Alert when a test on dashboard.sitespeed.io stops sending metrics.
+# Grafana on the dashboard server loads this file next to the alert rules
+# from the sitespeed.io repository.
+apiVersion: 1
+
+groups:
+  - orgId: 1
+    name: dashboard.sitespeed.io missing data
+    folder: dashboard.sitespeed.io
+    interval: 5m
+    rules:
+      - uid: dashboard-missing-data
+        title: Test stopped sending data
+        condition: C
+        data:
+          # Number of pages each test (path and test name) sent in the
+          # last 12 hours. A whole loop takes about 6 hours, so 0 means
+          # that the test missed two runs.
+          - refId: A
+            relativeTimeRange:
+              from: 43200
+              to: 0
+            datasourceUid: graphite
+            model:
+              refId: A
+              target: "groupByNodes(isNonNull(sitespeed_io.*.*.pageSummary.*.*.*.*.browsertime.statistics.timings.ttfb.median), 'sum', 1, 2)"
+          - refId: B
+            datasourceUid: __expr__
+            model:
+              refId: B
+              type: reduce
+              expression: A
+              reducer: max
+          - refId: C
+            datasourceUid: __expr__
+            model:
+              refId: C
+              type: threshold
+              expression: B
+              conditions:
+                - evaluator:
+                    type: lt
+                    params:
+                      - 1
+        # No series at all means that Graphite has no data for any test
+        noDataState: Alerting
+        execErrState: Error
+        for: 30m
+        annotations:
+          summary: A test stopped sending data
+          description: "The test {{ $labels.name }} has not sent metrics to Graphite for 12 hours. Check the log on the test server. If you removed the test, remove its folder in Graphite."
+        isPaused: false
