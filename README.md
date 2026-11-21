@@ -27,6 +27,7 @@ The first-view test in [tests/desktop/wikipedia.txt](tests/desktop/wikipedia.txt
 ```
 .
 ├── config                  # One configuration file for each test file
+├── grafana/alerting        # Alert rules for the Grafana on the dashboard server
 ├── loop.sh                 # Runs forever: git pull, then run.sh
 ├── run.sh                  # Runs every test in each folder in a set of browsers
 └── tests
@@ -83,3 +84,15 @@ To start the tests again when the server reboots, add this to the crontab with `
 ```bash
 @reboot rm /root/dashboard.sitespeed.io/sitespeed.run;cd /root/dashboard.sitespeed.io/ && ./loop.sh
 ```
+
+## Alerts
+[grafana/alerting](grafana/alerting) has the alert rules for the Grafana on the dashboard server. *Test stopped sending data* fires for each test (path and test name) that has not sent metrics to Graphite for 12 hours. When you remove a test, also remove its folder in Graphite, or the rule fires for it.
+
+Grafana only reads files directly in its alerting folder, not in subfolders. So the server mounts this folder as that folder, and *regressions.yaml* is a symbolic link to the *Page got slower* rule from the sitespeed.io repository, which the server mounts next to it:
+
+```yaml
+- /root/dashboard.sitespeed.io/grafana/alerting:/etc/grafana/provisioning/alerting
+- /root/sitespeed.io/docker/grafana/provisioning/alerting:/etc/grafana/sitespeed.io-alerting
+```
+
+Grafana reads alert rules when it starts. After you change a rule, pull the change on the server and restart Grafana.
