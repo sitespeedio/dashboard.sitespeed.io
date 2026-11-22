@@ -42,5 +42,9 @@
     "namespace": "sitespeed_io.emulatedMobile",
     "addSlugToKey": true,
     "messages": ["pageSummary", "run"]
+  },
+  "trend": {
+    "enable": true,
+    "path": "trend"
   }
 }

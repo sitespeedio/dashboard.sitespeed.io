@@ -20,6 +20,8 @@ Read the [full documentation](https://www.sitespeed.io/documentation/sitespeed.i
 
 The WebPageReplay test runs 21 iterations and compares each test with a baseline using a Mann-Whitney U test that looks for regressions. [run.sh](run.sh) saves a new baseline on Sundays (`--compare.saveBaseline`), so the rest of the week is compared with the last Sunday test. WebPageReplay replays the same recorded responses every time, so a significant change there comes from the browser or the page code, not from the network. The baselines are saved as JSON files in the folder where the tests run.
 
+All tests also use the [trend plugin](https://www.sitespeed.io/documentation/sitespeed.io/compare/#find-regressions-over-time), which compares the medians of the last 4 tests of a page with the 28 tests before. That finds pages that got slower over time, also for the live tests with only a few runs, where comparing single runs with a baseline gives many false alerts. The history is one JSON file for each page in the *trend* folder where the tests run, and the plugin starts to compare when a page has 32 tests. The WebPageReplay test counts a change of 2% and 10 ms as slower, the other tests 10% and 100 ms.
+
 The first-view test in [tests/desktop/wikipedia.txt](tests/desktop/wikipedia.txt) tests the same Wikipedia pages as the WebPageReplay test and also sends them to OpenSearch. In the OpenSearch dashboard, pick the test with *Test*: `webpagereplay` or `firstView` (the `--slug` of each test).
 
 ## How it is organised
