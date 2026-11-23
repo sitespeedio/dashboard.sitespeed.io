@@ -93,8 +93,10 @@ To start the tests again when the server reboots, add this to the crontab with `
 Grafana only reads files directly in its alerting folder, not in subfolders. So the server mounts this folder as that folder, and *regressions.yaml* is a symbolic link to the *Page got slower* rule from the sitespeed.io repository, which the server mounts next to it:
 
 ```yaml
-- /root/dashboard.sitespeed.io/grafana/alerting:/etc/grafana/provisioning/alerting
+- /root/dashboard.sitespeed.io-repo/grafana/alerting:/etc/grafana/provisioning/alerting
 - /root/sitespeed.io/docker/grafana/provisioning/alerting:/etc/grafana/sitespeed.io-alerting
 ```
 
-Grafana reads alert rules when it starts. After you change a rule, pull the change on the server and restart Grafana.
+The first path is a clone of this repository. */root/dashboard.sitespeed.io* on the server is not a clone: it has the Docker Compose file and the server configuration.
+
+Grafana reads alert rules when it starts. After you change a rule, pull the change in */root/dashboard.sitespeed.io-repo* and restart Grafana.
