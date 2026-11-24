@@ -29,7 +29,9 @@
     "includeRuns": true
   },
   "compare": {
-    "testType": "mannwhitneyu"
+    "testType": "mannwhitneyu",
+    "baselineMaxAge": 6,
+    "baselineDays": ["saturday", "sunday"]
   },
   "trend": {
     "minChangePercent": 2,
